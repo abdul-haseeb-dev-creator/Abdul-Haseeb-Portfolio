@@ -1,26 +1,38 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, Github, Smartphone, Globe, Layers, ArrowUpRight, Check } from 'lucide-react';
+import { ExternalLink, Smartphone, Globe, Layers, ArrowUpRight, Check } from 'lucide-react';
 import { projects } from '../data';
 
 export default function Projects() {
   const [filter, setFilter] = useState<'All' | 'Mobile' | 'Web' | 'E-commerce'>('All');
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  // Set up mock rich image cards
+  // Set up local self-hosted rich image cards mapping to all 14 new projects
   const projectImages: Record<string, string> = {
-    'Adil Store': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600',
-    'DishDish': 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=600',
-    'Ethan Allen': 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=600',
-    'Motoboy': 'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
-    'Rizq Mart': 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600'
+    'Motboy Driver Application': 'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
+    'Motboy Customer Application': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600',
+    'Motboy Admin Panel': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600',
+    'Adil Store E-commerce Application & Web': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600',
+    'DishDish Cookbook App & Web Platform': 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=600',
+    'Tyloz Cleaning Service – Cleaner & Customer Applications': 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=600',
+    'Four Apple – Real Estate Agent Application & CRM Tool': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=600',
+    'First Souq – E-commerce Application & Web Platform': '/images/484076585_618921344346965_8387813750205689905_n.jpg',
+    'Azaro – Multi-Vendor E-commerce Application & Web Platform': 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=600',
+    'Future Fit – Mobile Application & Admin Panel': 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=600',
+    'Ethan Allen – E-commerce Web Platform': 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=600',
+    'Aquakingdom – E-commerce Mobile Application': 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=600',
+    'Jamoka Properties – CRM & Lead Management Tool': 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600',
+    'Grubsy – Delivery Platform': '/images/original-d83e2ea78b727af7e38ccd8b0730b2e9.webp'
   };
 
   const filteredProjects = projects.filter((proj) => {
     if (filter === 'All') return true;
     if (filter === 'Mobile') return proj.platforms?.includes('iOS') || proj.platforms?.includes('Android');
     if (filter === 'Web') return proj.platforms?.includes('Web');
-    if (filter === 'E-commerce') return proj.category.toLowerCase().includes('e-commerce') || proj.category.toLowerCase().includes('grocery');
+    if (filter === 'E-commerce') {
+      const catLower = proj.category.toLowerCase();
+      return catLower.includes('e-commerce') || catLower.includes('marketplace') || catLower.includes('delivery');
+    }
     return true;
   });
 
@@ -157,30 +169,6 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                  </div>
-
-                  {/* CTAs */}
-                  <div className="px-6 pb-6 pt-2 flex items-center gap-3">
-                    {proj.webUrl && (
-                      <a
-                        href={proj.webUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-grow py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-mono text-xs font-semibold tracking-wider uppercase text-center flex items-center justify-center gap-1.5 transition-all shadow-md"
-                      >
-                        <Globe className="h-3.5 w-3.5" />
-                        Live Demo
-                      </a>
-                    )}
-                    <a
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl border border-gray-800 hover:border-gray-700 text-gray-400 hover:text-white hover:bg-gray-900/50 transition-all"
-                      title="View GitHub"
-                    >
-                      <Github className="h-4 w-4" />
-                    </a>
                   </div>
 
                 </motion.div>

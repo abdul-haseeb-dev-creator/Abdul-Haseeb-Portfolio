@@ -17,6 +17,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
     { label: 'Skills', id: 'skills' },
     { label: 'Experience', id: 'experience' },
     { label: 'Projects', id: 'projects' },
+    { label: 'Gallery', id: 'gallery' },
     { label: 'Services', id: 'services' },
     { label: 'Contact', id: 'contact' },
   ];

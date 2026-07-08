@@ -96,73 +96,201 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    title: 'Adil Store',
-    category: 'E-commerce Mobile App & Web',
-    description: 'A comprehensive cross-platform mobile e-commerce application integrated with a Magento web storefront, providing end-to-end purchasing capabilities and real-time syncing.',
+    title: 'Motboy Driver Application',
+    category: 'Mobile App Development',
+    description: 'Fully developed high-performance React Native driver-focused application from UI design to production deployment, featuring real-time logistics tracking and booking management workflows.',
     features: [
-      'Developed the full cross-platform mobile e-commerce app in React Native and managed the web storefront in Magento.',
-      'Implemented product listing, cart, checkout, order tracking, and user authentication.',
-      'Complete API integration for seamless product, order, and customer data synchronization.',
-      'Optimized application performance across iOS and Android and managed ongoing store deployments.'
+      'Built complete driver workflows including login, ride/order management, status updates, and live tracking.',
+      'Integrated APIs for real-time data sync and driver activity management.',
+      'Managed end-to-end debugging, testing, and production-ready store releases.'
     ],
-    technologies: ['React Native', 'Magento', 'RESTful APIs', 'iOS & Android Deployment', 'E-commerce UI'],
-    webUrl: 'https://adilstore.com',
-    platforms: ['iOS', 'Android', 'Web']
+    technologies: ['React Native', 'Mobile App Development', 'RESTful APIs', 'Real-time Sync', 'Rider Workflow'],
+    platforms: ['iOS', 'Android']
   },
   {
-    title: 'DishDish',
-    category: 'Cookbook Mobile App & Web Platform',
-    description: 'An elegant recipe catalog and cookbook community platform consisting of a React Native mobile application and a Laravel web backend with administrative controls.',
+    title: 'Motboy Customer Application',
+    category: 'Mobile App Development',
+    description: 'Independently developed customer-facing e-commerce/on-demand booking React Native mobile application, optimizing client reservation pipelines and real-time order tracking.',
     features: [
-      'Owned the complete project lifecycle — including UI/UX design, mobile app development, and web platform creation.',
-      'Implemented recipe listing, category filters, advanced search, bookmarking favorites, and authentication.',
-      'Designed custom REST APIs for robust sync between the mobile app, web dashboard, and server.',
-      'Built custom admin modules for cooking recipe moderation, content management, and user permissions.'
+      'Implemented features such as user authentication, order/booking flow, live tracking, and push notifications.',
+      'Integrated backend APIs and optimized mobile performance specifically for iOS and Android environments.',
+      'Handled full application lifecycle including local sandbox development, testing, and multi-store release support.'
     ],
-    technologies: ['React Native', 'Laravel', 'REST APIs', 'UI/UX Design', 'MySQL'],
-    webUrl: 'https://dishdish.us',
-    platforms: ['iOS', 'Android', 'Web']
+    technologies: ['React Native', 'Mobile App Development', 'API Integration', 'User Auth', 'Performance Optimization'],
+    platforms: ['iOS', 'Android']
   },
   {
-    title: 'Ethan Allen',
-    category: 'E-commerce Web Platform',
-    description: 'A premium, fully responsive luxury furniture e-commerce web platform engineered for high-speed page loads, featuring deep cart management and backend inventory sync.',
+    title: 'Motboy Admin Panel',
+    category: 'Web Admin Dashboard',
+    description: 'A powerful centralized web administration dashboard developed with CodeIgniter to control and monitor the entire Motboy driver and customer fleet ecosystem.',
     features: [
-      'Developed the entire e-commerce frontend and backend using Laravel.',
-      'Implemented advanced custom features like deep category filtering, interactive catalog, product variants, and cart checkout flow.',
-      'Built fully secure and integrated backend modules for automated inventory control, client data management, and order status tracking.',
-      'Optimized web vitals resulting in blazing-fast search response times and seamless responsive layout.'
+      'Fully developed the administrative control panel from the ground up using CodeIgniter PHP.',
+      'Built specialized modules for user management, driver management, orders, reporting, and live ride tracking.',
+      'Integrated real-time live monitoring and robust backend API system support for mobile clients.',
+      'Managed server deployment, load balancing configuration, and post-launch production issue resolution.'
     ],
-    technologies: ['Laravel', 'PHP', 'REST APIs', 'Responsive Design', 'MySQL'],
-    webUrl: 'https://ethanallen-uae.com',
+    technologies: ['CodeIgniter', 'PHP', 'Admin Dashboard', 'Real-time Monitoring', 'Web Panels'],
     platforms: ['Web']
   },
   {
-    title: 'Motoboy',
-    category: 'Logistics Ecosystem & Web Dashboard',
-    description: 'A complete logistics and delivery fleet ecosystem encompassing a driver application, a customer ordering application, and a powerful centralized web administration dashboard.',
+    title: 'Adil Store E-commerce Application & Web',
+    category: 'E-commerce Supermarket App',
+    description: 'A premium, high-speed mobile e-commerce supermarket application designed for "Adil - The Home of Indian Food Stuff". Integrates with custom API backends to synchronize categories (Beverages, Spices, Flours, Rice), manage dynamic search, handle user wishlists, and execute checkout flows.',
     features: [
-      'Independently developed and maintained the entire triple-product suite (Driver App, Customer App, and Admin Panel).',
-      'Implemented real-time GPS courier tracking, interactive delivery routing, status push notifications, and detailed rider payouts.',
-      'Integrated Secure User/Driver authentication, Ride Allocation and booking queues, and real-time report charts.',
-      'Managed full deployment cycles, performance tuning, and cross-platform live troubleshooting.'
+      'Developed the fully-featured supermarket mobile application supporting multicountry operations (UAE, Bahrain, Oman, Saudi Arabia, India).',
+      'Implemented real-time item catalog navigation including local search filters, dynamic category rails (e.g. Beverages, Daily Essentials), and active order tracking.',
+      'Designed a vibrant, conversion-focused promotional banner engine featuring customer support details, hot deals (such as Joshi\'s Bhakri crispy snacks), and custom badges.',
+      'Configured high-fidelity mobile UI elements including interactive plus/minus cart controls, favorite wishlist highlights, and sticky navigation tabs.'
     ],
-    technologies: ['React Native', 'CodeIgniter', 'Real-time Tracking', 'Admin Dashboard', 'Mobile App Development'],
-    webUrl: 'https://motoboy.ae',
+    technologies: ['React Native', 'Magento API', 'E-commerce UI', 'Redux State', 'RESTful Services'],
     platforms: ['iOS', 'Android', 'Web']
   },
   {
-    title: 'Rizq Mart',
-    category: 'Grocery E-Commerce Platform',
-    description: 'A scalable online grocery delivery system consisting of cross-platform Flutter mobile clients and a secure, Laravel-driven administrative backend server.',
+    title: 'DishDish Cookbook App & Web Platform',
+    category: 'Web & Mobile Application',
+    description: 'Designed and built an elegant, modern community recipe catalog and social cooking platform consisting of a React Native client and a custom Laravel web backend.',
     features: [
-      'Architected and maintained the end-to-end grocery logistics platform.',
-      'Implemented detailed catalog hierarchies, digital cart states, secure payment gateway integrations, and real-time delivery tracking.',
-      'Managed full software lifecycles including continuous testing, bug fixing, backend API optimization, and App Store submission routines.'
+      'Designed and developed the complete user-friendly UI/UX experience for the DishDish mobile application and web platform.',
+      'Built the responsive mobile application in React Native and the stable web platform using Laravel PHP.',
+      'Managed the project end-to-end including custom database design, development, debugging, and production deployments.',
+      'Implemented recipe listings, granular category filters, advanced elastic search, personal favorites, and authentication.',
+      'Developed and integrated secure REST APIs for seamless synchronization between the mobile app, web dashboard, and server.',
+      'Built comprehensive administrative modules for recipe moderation, content management, and user profiles.'
     ],
-    technologies: ['Flutter', 'Laravel', 'REST APIs', 'Payment Gateway Integration', 'iOS & Android'],
-    webUrl: 'https://rizq-mart.com',
+    technologies: ['React Native', 'Laravel', 'UI/UX Design', 'REST APIs', 'Admin Modules', 'MySQL'],
+    platforms: ['iOS', 'Android', 'Web']
+  },
+  {
+    title: 'Tyloz Cleaning Service – Cleaner & Customer Applications',
+    category: 'Mobile Application',
+    description: 'A dual-app on-demand booking ecosystem featuring a dedicated Cleaner service app and a Customer reservation app engineered to organize home cleaning schedules.',
+    features: [
+      'Developed both the Cleaner application and Customer booking application from scratch in React Native.',
+      'Built the complete booking workflow from UI design to mobile development, automated testing, and store deployment.',
+      'Implemented features such as secure user authentication, service scheduling, cleaner assignment, live booking status updates, and push notifications.',
+      'Integrated robust REST APIs with a Laravel backend to maintain real-time data sync across both mobile clients.',
+      'Developed backend modules in Laravel for automated booking management, customer records, cleaner profiles, and admin operations.',
+      'Worked on thorough bug fixing, API issue resolution, server scaling, and production support.'
+    ],
+    technologies: ['React Native', 'Laravel', 'Mobile Application', 'REST APIs', 'On-demand Booking'],
     platforms: ['iOS', 'Android']
+  },
+  {
+    title: 'Four Apple – Real Estate Agent Application & CRM Tool',
+    category: 'CRM & Mobile Application',
+    description: 'An enterprise-grade real estate ecosystem featuring a portable React Native mobile application for on-the-field agents and a Laravel CRM admin backend system.',
+    features: [
+      'Developed the Real Estate Agent mobile application in React Native and built the CRM and backend systems in Laravel.',
+      'Managed the project from custom UI/UX design to development, testing, debugging, and cloud deployment.',
+      'Implemented features such as agent secure login, interactive property listings, lead management, client follow-up schedules, appointment bookings, and automated notifications.',
+      'Developed custom CRM modules for property management, lead tracking, customer history records, analytics reporting, and admin controls.',
+      'Integrated REST APIs for real-time, seamless data flow between the agent mobile application and CRM server.',
+      'Worked on production issue resolution, API performance optimization, and reliable deployment support.'
+    ],
+    technologies: ['React Native', 'Laravel', 'CRM & Admin', 'Lead Tracking', 'API Optimization'],
+    platforms: ['iOS', 'Android', 'Web']
+  },
+  {
+    title: 'First Souq – E-commerce Application & Web Platform',
+    category: 'E-commerce Platform',
+    description: 'A premium, high-fidelity e-commerce mobile application and web platform styled with advanced fluid interactive animations and smooth native screen transitions.',
+    features: [
+      'Developed the mobile e-commerce application in React Native with advanced animation effects and smooth user interactions.',
+      'Built the fully responsive web platform and database administration backend systems in Laravel.',
+      'Implemented key commercial features including product catalogs, category filters, cart management, checkout, order tracking, and user auth.',
+      'Designed and developed high-quality custom UI animations, custom screen transitions, and interactive product display flows.',
+      'Integrated stable REST APIs for rapid product, customer, and order management.',
+      'Managed end-to-end debugging, performance optimization, and play store / app store deployment.'
+    ],
+    technologies: ['React Native', 'Laravel', 'E-commerce', 'Advanced Animations', 'UI transitions'],
+    platforms: ['iOS', 'Android', 'Web']
+  },
+  {
+    title: 'Azaro – Multi-Vendor E-commerce Application & Web Platform',
+    category: 'Multi-Vendor Marketplace',
+    description: 'A heavy-duty multi-vendor marketplace platform featuring an interactive React Native consumer app and a Laravel multi-seller backend system with dedicated vendor consoles.',
+    features: [
+      'Developed the multi-vendor e-commerce mobile application in React Native and the web platform / backend system in Laravel.',
+      'Implemented advanced animation effects, smooth screen transitions, and highly interactive custom UI elements.',
+      'Developed marketplace specific features including self-serve vendor onboarding, dedicated vendor dashboards, product inventory management, customer orders, shopping carts, checkout, and shipping tracking.',
+      'Built complex admin modules for multi-seller product listings, automated commission management, vendor payout flows, and master admin controls.',
+      'Integrated REST APIs for real-time synchronization between the mobile consumer app, merchant web platform, individual vendor consoles, and backend server.',
+      'Worked on heavy performance optimization, query bug fixing, production scaling, and secure server deployment.'
+    ],
+    technologies: ['React Native', 'Laravel', 'Multi-Vendor Marketplace', 'Vendor Dashboards', 'Commission Management'],
+    platforms: ['iOS', 'Android', 'Web']
+  },
+  {
+    title: 'Future Fit – Mobile Application & Admin Panel',
+    category: 'Web & Mobile Application',
+    description: 'A comprehensive fitness tracking and subscriber management application with a React Native app and a Laravel-driven admin dashboard.',
+    features: [
+      'Developed the Future Fit client mobile application in React Native and built the administration backend system in Laravel.',
+      'Managed the project end-to-end from initial UI/UX wireframing, development, security testing, and deployment.',
+      'Implemented user authentication, interactive fitness schedules/plans, user progress trackers, push notifications, and recurring subscription payment management.',
+      'Developed admin modules for user accounts management, exercise/content library management, subscription reporting, and business analytics.',
+      'Integrated REST APIs for real-time, low-latency synchronization between the athlete mobile app and admin backend.',
+      'Worked on mobile performance tuning, offline caching, and production-ready store releases.'
+    ],
+    technologies: ['React Native', 'Laravel', 'Fitness Tracker', 'Subscription System', 'Performance Tuning'],
+    platforms: ['iOS', 'Android']
+  },
+  {
+    title: 'Ethan Allen – E-commerce Web Platform',
+    category: 'E-commerce Platform',
+    description: 'A premium luxury e-commerce web platform developed using Laravel to facilitate interactive furniture catalogs and custom product variant checkouts.',
+    features: [
+      'Developed the entire premium Ethan Allen e-commerce website and admin dashboard using Laravel.',
+      'Implemented complex features including searchable product catalogs, dynamic category filtering, shopping cart, custom checkout, order tracking, and user accounts.',
+      'Built fully integrated backend modules for real-time inventory management, customer database records, and order fulfillment.',
+      'Integrated custom REST APIs for ultra-smooth, lightweight data transfer and page state hydration.',
+      'Optimized database indexes and web platform performance, delivering rapid loading speeds and full mobile responsiveness.'
+    ],
+    technologies: ['Laravel', 'PHP', 'E-commerce Platform', 'Inventory Sync', 'Responsive Design'],
+    platforms: ['Web']
+  },
+  {
+    title: 'Aquakingdom – E-commerce Mobile Application',
+    category: 'Mobile Application',
+    description: 'A sleek, high-fidelity e-commerce mobile application built with React Native and powered by a Laravel API backend for high-volume consumer transactions.',
+    features: [
+      'Developed the Aquakingdom mobile app using React Native coupled with a stable, high-throughput Laravel backend API server.',
+      'Implemented complete shopping flows including product search, rich catalog grid, instant cart, secure checkout, purchase history, and user authentication.',
+      'Integrated custom REST APIs for bidirectional real-time data synchronization between the mobile client and administrative backend.',
+      'Optimized app bundle size, implemented responsive UI components, and managed seamless store submissions.'
+    ],
+    technologies: ['React Native', 'Laravel', 'E-commerce Mobile', 'API Sync', 'Responsive UI'],
+    platforms: ['iOS', 'Android']
+  },
+  {
+    title: 'Jamoka Properties – CRM & Lead Management Tool',
+    category: 'CRM & Admin Panel',
+    description: 'An operations-focused real estate lead management and CRM console developed using Laravel to streamline properties listings and client follow-up workflows.',
+    features: [
+      'Developed the complete real estate CRM and automated lead management dashboard utilizing Laravel.',
+      'Implemented core features including daily lead tracking pipelines, agent-to-client follow-ups, property listings inventory, reporting, and analytics graphs.',
+      'Built separate modules for broker/agent team management, listing moderation, and master admin analytics dashboards.',
+      'Integrated REST APIs for real-time data sync with active mobile apps and consumer property portals.',
+      'Handled strict code optimization, background queue job debugging, and secure server deployments.'
+    ],
+    technologies: ['Laravel', 'PHP', 'CRM Dashboard', 'Lead Management', 'Queue Jobs'],
+    platforms: ['Web']
+  },
+  {
+    title: 'Grubsy – Delivery Platform',
+    category: 'Web & Mobile Applications',
+    description: 'A state-of-the-art multi-role delivery fleet platform consisting of a React Native Expo customer application, driver application, merchant application, React admin console, and Node.js/Prisma API backend.',
+    features: [
+      'Customer App: Built in React Native Expo for seamless on-demand food ordering, order tracking, and custom notification systems.',
+      'Driver App: Built in React Native Expo for live delivery booking/order management, map navigation routing, and live status updates.',
+      'Merchants App: Built in React Native Expo for store order management, product menus/listings configuration, and basic merchant analytics.',
+      'Admin Panel: Developed as a single-page web app in React to handle comprehensive user accounts, driver payouts, merchant verifications, and custom system reports.',
+      'Backend: Engineered a heavy-duty Node.js server powered by Prisma ORM for clean database query management, safety middlewares, and rapid API endpoints delivery.',
+      'Integrated secure real-time driver tracking, custom push notifications systems, and multi-gateway payment integrations.',
+      'Responsible for lead architectural decisions, full-stack API integration, mobile troubleshooting, testing, and multi-store production deployment.'
+    ],
+    technologies: ['React Native Expo', 'React.js', 'Node.js', 'Prisma ORM', 'Real-time Tracking', 'Payment Integrations'],
+    platforms: ['iOS', 'Android', 'Web']
   }
 ];
 

@@ -9,6 +9,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import GallerySlider from './components/GallerySlider';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Education from './components/Education';
@@ -38,7 +39,7 @@ export default function App() {
       setShowScrollTop(window.scrollY > 400);
 
       // 3. Dynamic active section highlights
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'services', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'gallery', 'services', 'contact'];
       let currentSection = 'home';
 
       for (const sectionId of sections) {
@@ -117,6 +118,9 @@ export default function App() {
 
             {/* Projects gallery */}
             <Projects />
+
+            {/* Visual Portfolio Gallery Slider */}
+            <GallerySlider />
 
             {/* Services catalog */}
             <Services />

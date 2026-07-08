@@ -3,25 +3,36 @@
   <head>
     <script>
       (function() {
+        var originalFetch = window.fetch;
+        if (!originalFetch) return;
+
         try {
-          var originalFetch = window.fetch;
-          if (originalFetch) {
-            Object.defineProperty(window, 'fetch', {
-              value: originalFetch,
-              writable: true,
-              configurable: true,
-              enumerable: true
-            });
-          }
+          Object.defineProperty(Window.prototype, 'fetch', {
+            get: function() { return originalFetch; },
+            set: function(v) { originalFetch = v; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          console.warn('Unable to redefine Window.prototype.fetch:', e);
+        }
+
+        try {
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return originalFetch; },
+            set: function(v) { originalFetch = v; },
+            configurable: true,
+            enumerable: true
+          });
         } catch (e) {
           console.warn('Unable to redefine window.fetch:', e);
         }
+
         try {
-          var originalGlobalFetch = globalThis.fetch;
-          if (originalGlobalFetch) {
+          if (typeof globalThis !== 'undefined' && globalThis !== window) {
             Object.defineProperty(globalThis, 'fetch', {
-              value: originalGlobalFetch,
-              writable: true,
+              get: function() { return originalFetch; },
+              set: function(v) { originalFetch = v; },
               configurable: true,
               enumerable: true
             });
