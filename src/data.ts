@@ -346,34 +346,44 @@ export const achievements: Achievement[] = [
 
 export const services: Service[] = [
   {
-    title: 'Mobile App Development',
-    description: 'Expert cross-platform iOS and Android engineering with React Native, Expo, and Flutter, achieving 95%+ code sharing and native feel.',
-    icon: 'Smartphone'
+    title: 'Full Stack Development',
+    description: 'End-to-end web architectures using Node.js, Laravel, React, and modern databases. Shipped with robust security, state hydration, and smooth performance.',
+    icon: 'Layers'
   },
   {
-    title: 'Full-Stack Web Development',
-    description: 'Building high-performance, modular web applications utilizing React.js, modern build pipelines (Webpack, Vite), and responsive layouts.',
+    title: 'SaaS Development',
+    description: 'Engineering scalable Multi-Tenant Software-as-a-Service portals featuring dynamic billing subscription, self-serve client onboarding, and secure user permissions management.',
+    icon: 'Boxes'
+  },
+  {
+    title: 'Web Development',
+    description: 'Building highly responsive, fast-loading, pixel-perfect SPA web platforms with React, Vite, and tailwind. Styled with subtle fluid micro-animations.',
     icon: 'Globe'
   },
   {
-    title: 'API Engineering & Integration',
-    description: 'Designing highly robust and scalable RESTful and GraphQL APIs with intelligent caching, reducing backend overhead by 25%.',
-    icon: 'Cpu'
+    title: 'Mobile App Development',
+    description: 'Expert native-feeling cross-platform iOS & Android apps developed using React Native & Expo, boasting 95%+ shared codebase and optimized animations.',
+    icon: 'Smartphone'
   },
   {
-    title: 'Backend & System Design',
-    description: 'Developing heavy-duty server architectures using Node.js, Laravel, and ASP.NET MVC, engineered to handle thousands of concurrent connections.',
-    icon: 'Server'
+    title: 'AI Automation',
+    description: 'Integrating state-of-the-art LLMs, Gemini AI, custom prompt automation engines, and automated workflows to optimize business delivery speeds.',
+    icon: 'Bot'
   },
   {
-    title: 'Database & Query Optimization',
-    description: 'Advanced optimization for MongoDB, MySQL, SQL Server, and Firestore, reducing query execution times by up to 45%.',
-    icon: 'Database'
+    title: 'API Integration',
+    description: 'Designing ultra-fast, robust, secure RESTful & GraphQL API architectures with clean caching schemes and third-party gateway synchronization.',
+    icon: 'Workflow'
   },
   {
-    title: 'App Store Deployment & CI/CD',
-    description: 'Managing end-to-end release procedures for Apple App Store & Google Play Store, and building automated CI/CD pipelines for zero-downtime.',
-    icon: 'CloudLightning'
+    title: 'MVP Development',
+    description: 'Rapid bootstrapping of minimum viable products with clean, production-grade codebase to validate business models and raise capital swiftly.',
+    icon: 'Rocket'
+  },
+  {
+    title: 'Bug Fixing & Maintenance',
+    description: 'Precise performance auditing, continuous backend upgrades, App Store/Play Store deployments, and resolving tricky production-level bugs.',
+    icon: 'Wrench'
   }
 ];
 

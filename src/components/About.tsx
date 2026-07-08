@@ -67,11 +67,11 @@ export default function About() {
             </h3>
             
             <p className="text-gray-400 leading-relaxed font-light">
-              I am a results-driven Full-Stack Developer with <strong>5+ years of hands-on experience</strong> in React Native and React.js. Over my career, I have successfully shipped <strong>10+ production-ready</strong> mobile and web applications across multiple complex industries.
+              I am a results-driven <strong>Full Stack Developer</strong> and <strong>SaaS Developer</strong> with <strong>5+ years of hands-on experience</strong> building scalable, consumer-facing products. As a senior <strong>React Developer</strong>, <strong>React Native Developer</strong>, and <strong>Next.js Developer</strong>, I specialize in crafting high-performance user interfaces, while leveraging backend strength as a <strong>Laravel Developer</strong> and <strong>Node.js Developer</strong>. Over my career, I have successfully shipped <strong>10+ production-ready</strong> mobile and web applications across multiple complex industries.
             </p>
             
             <p className="text-gray-400 leading-relaxed font-light">
-              My strength lies in owning complete application lifecycles — ranging from robust frontend UI design to efficient state-management, API construction, and continuous testing to deployment workflows. I am highly proficient at collaborating with remote development and QA squads using Agile frameworks, and possess a track-record of improving app velocity and reducing code bug ratios.
+              My engineering philosophy focuses on complete application lifecycles—ranging from robust frontend UI design to seamless <strong>API Integration</strong>, secure databases, and zero-downtime deployments. In addition to full-stack systems, I design custom workflows as an <strong>AI Automation Engineer</strong>, integrating advanced LLMs and automated prompt pipelines to drastically increase operational speeds and user convenience.
             </p>
 
             {/* Industrial Domain Badges */}

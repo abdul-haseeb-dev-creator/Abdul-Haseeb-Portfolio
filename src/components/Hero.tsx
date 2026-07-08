@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Linkedin, Mail, Phone, ArrowUpRight, ArrowRight, Download, FileText, Smartphone, Code, Cpu } from 'lucide-react';
+import { Linkedin, Mail, Phone, ArrowUpRight, ArrowRight, Download, FileText, Smartphone, Code, Cpu, Calendar } from 'lucide-react';
 import { personalInfo } from '../data';
 import avatarImg from '../assets/images/abdul_haseeb_avatar_1783331580357.jpg';
 
@@ -11,10 +11,13 @@ interface HeroProps {
 
 export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
   const roles = [
+    'Full Stack Developer',
+    'React & Next.js Developer',
     'React Native Developer',
-    'Full-Stack JavaScript Engineer',
-    'iOS & Android Architect',
     'Laravel & Node.js Developer',
+    'SaaS Developer',
+    'AI Automation Engineer',
+    'API Integration Specialist',
   ];
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -91,32 +94,50 @@ export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-base sm:text-lg text-gray-400 font-light leading-relaxed max-w-xl mb-10"
+            className="text-base sm:text-lg text-gray-400 font-light leading-relaxed max-w-xl mb-6"
           >
             {personalInfo.summary}
           </motion.p>
+
+          {/* Core Tech Quick Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="flex flex-wrap items-center gap-2 mb-10"
+          >
+            <span className="font-mono text-[10px] text-gray-500 uppercase tracking-widest mr-2">Expertise:</span>
+            {['React', 'Next.js', 'Node.js', 'React Native', 'Laravel'].map((tech) => (
+              <span key={tech} className="px-3 py-1 rounded-lg bg-gray-950 border border-gray-800/80 text-gray-300 font-mono text-[11px] hover:border-violet-500/30 transition-all duration-300">
+                {tech}
+              </span>
+            ))}
+          </motion.div>
 
           {/* Call to Actions & CV Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10"
+            className="flex flex-wrap items-center gap-4 mb-10"
           >
             <button
-              onClick={onProjectsClick}
-              className="group px-6 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-display text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-violet-500/15 hover:shadow-violet-500/25 hover:scale-102"
+              onClick={onContactClick}
+              className="group px-6 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-display text-sm font-bold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-violet-500/15 hover:shadow-violet-500/25 hover:scale-102 cursor-pointer"
             >
-              Explore Projects
+              <Mail className="h-4 w-4" />
+              Hire Me
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
-            <button
-              onClick={onContactClick}
+            <a
+              href="https://calendly.com/abdulhaseeb158441"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3.5 rounded-xl border border-gray-800 hover:border-violet-500/40 hover:bg-violet-950/10 text-gray-300 hover:text-white font-display text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2"
             >
-              Contact Me
-              <ArrowUpRight className="h-4 w-4 text-gray-500 group-hover:text-white" />
-            </button>
+              <Calendar className="h-4 w-4 text-violet-400" />
+              Book a Call
+            </a>
             <a
               href="https://drive.google.com/file/d/1D1C8TV64u92BUL7WQBf4hKQjUjUu_sHY/view?usp=sharing"
               target="_blank"
@@ -231,7 +252,7 @@ export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-4 -right-4 glass-panel rounded-2xl p-3 border border-cyan-500/30 flex items-center gap-2 shadow-lg"
+              className="absolute -top-4 -right-4 glass-panel rounded-2xl p-3 border border-cyan-500/30 flex items-center gap-2 shadow-lg z-20"
             >
               <Smartphone className="h-4 w-4 text-cyan-400" />
               <span className="font-mono text-[10px] text-white font-medium">10+ Shipped Apps</span>
@@ -240,10 +261,44 @@ export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute -bottom-2 -left-4 glass-panel rounded-2xl p-3 border border-violet-500/30 flex items-center gap-2 shadow-lg"
+              className="absolute -bottom-2 -left-4 glass-panel rounded-2xl p-3 border border-violet-500/30 flex items-center gap-2 shadow-lg z-20"
             >
               <Code className="h-4 w-4 text-violet-400" />
               <span className="font-mono text-[10px] text-white font-medium">React Native</span>
+            </motion.div>
+
+            {/* Core Tech Floating Badges */}
+            {/* React Badge */}
+            <motion.div
+              animate={{ y: [0, -12, 0], rotate: [0, -1, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute -top-12 left-4 glass-panel rounded-2xl px-3 py-2 border border-cyan-400/40 flex items-center gap-2 shadow-lg shadow-cyan-950/20 z-20"
+            >
+              <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping absolute" />
+              <span className="h-2 w-2 rounded-full bg-cyan-400 relative" />
+              <span className="font-mono text-[10px] text-cyan-300 font-bold tracking-wide">React</span>
+            </motion.div>
+
+            {/* Next.js Badge */}
+            <motion.div
+              animate={{ x: [0, 8, 0], y: [0, -4, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              className="absolute top-1/3 -right-12 glass-panel rounded-2xl px-3 py-2 border border-white/20 flex items-center gap-2 shadow-lg shadow-black/40 z-20"
+            >
+              <span className="flex h-2 w-2 rounded-full bg-white animate-ping absolute" />
+              <span className="h-2 w-2 rounded-full bg-white relative" />
+              <span className="font-mono text-[10px] text-white font-bold tracking-wide">Next.js</span>
+            </motion.div>
+
+            {/* Node.js Badge */}
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
+              className="absolute -bottom-8 -right-4 glass-panel rounded-2xl px-3 py-2 border border-emerald-500/40 flex items-center gap-2 shadow-lg shadow-emerald-950/20 z-20"
+            >
+              <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping absolute" />
+              <span className="h-2 w-2 rounded-full bg-emerald-400 relative" />
+              <span className="font-mono text-[10px] text-emerald-400 font-bold tracking-wide">Node.js</span>
             </motion.div>
 
           </motion.div>

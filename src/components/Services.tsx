@@ -1,22 +1,35 @@
 import { motion } from 'motion/react';
-import { Smartphone, Globe, Cpu, Server, Database, CloudLightning } from 'lucide-react';
+import { 
+  Smartphone, 
+  Globe, 
+  Layers, 
+  Boxes, 
+  Bot, 
+  Workflow, 
+  Rocket, 
+  Wrench 
+} from 'lucide-react';
 import { services } from '../data';
 
 export default function Services() {
   const getServiceIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Smartphone':
-        return <Smartphone className="h-6 w-6 text-violet-400" />;
+      case 'Layers':
+        return <Layers className="h-6 w-6 text-violet-400" />;
+      case 'Boxes':
+        return <Boxes className="h-6 w-6 text-fuchsia-400" />;
       case 'Globe':
         return <Globe className="h-6 w-6 text-cyan-400" />;
-      case 'Cpu':
-        return <Cpu className="h-6 w-6 text-indigo-400" />;
-      case 'Server':
-        return <Server className="h-6 w-6 text-fuchsia-400" />;
-      case 'Database':
-        return <Database className="h-6 w-6 text-emerald-400" />;
-      case 'CloudLightning':
-        return <CloudLightning className="h-6 w-6 text-amber-400" />;
+      case 'Smartphone':
+        return <Smartphone className="h-6 w-6 text-emerald-400" />;
+      case 'Bot':
+        return <Bot className="h-6 w-6 text-indigo-400" />;
+      case 'Workflow':
+        return <Workflow className="h-6 w-6 text-sky-400" />;
+      case 'Rocket':
+        return <Rocket className="h-6 w-6 text-rose-400" />;
+      case 'Wrench':
+        return <Wrench className="h-6 w-6 text-amber-400" />;
       default:
         return <Globe className="h-6 w-6 text-gray-400" />;
     }
