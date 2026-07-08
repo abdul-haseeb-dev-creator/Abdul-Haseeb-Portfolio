@@ -15,6 +15,7 @@ import Testimonials from './components/Testimonials';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 import { useMousePosition } from './hooks/useMousePosition';
 
 export default function App() {
@@ -223,6 +224,7 @@ export default function App() {
           </div>
 
           {/* 9. Back to Top Button */}
+          <WhatsAppButton />
           <AnimatePresence>
             {showScrollTop && (
               <motion.button
