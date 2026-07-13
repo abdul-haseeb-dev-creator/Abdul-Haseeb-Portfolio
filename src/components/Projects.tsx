@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, Smartphone, Globe, Layers, ArrowUpRight, Check } from 'lucide-react';
+import { ExternalLink, Smartphone, Globe, Layers, ArrowUpRight, Check, Apple, Play, Download } from 'lucide-react';
 import { projects } from '../data';
 
 export default function Projects() {
@@ -9,6 +9,7 @@ export default function Projects() {
 
   // Set up local self-hosted rich image cards mapping to all 14 new projects
   const projectImages: Record<string, string> = {
+    'Rizq Mart Grocery Platform': 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600',
     'Motboy Driver Application': 'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
     'Motboy Customer Application': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600',
     'Motboy Admin Panel': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600',
@@ -22,7 +23,15 @@ export default function Projects() {
     'Ethan Allen – E-commerce Web Platform': 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=600',
     'Aquakingdom – E-commerce Mobile Application': 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=600',
     'Jamoka Properties – CRM & Lead Management Tool': 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600',
-    'Grubsy – Delivery Platform': '/images/original-d83e2ea78b727af7e38ccd8b0730b2e9.webp'
+    'Grubsy – Delivery Platform': '/images/original-d83e2ea78b727af7e38ccd8b0730b2e9.webp',
+    'REFIX Facility Services – Corporate Website': 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=600',
+    'EMX Motors': 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=600',
+    'SurRon ME': 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&q=80&w=600',
+    'Casa Vista Development': 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=600',
+    'Jamoka Properties': 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=600',
+    'Big Brands UAE': 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=600',
+    'Local Storage UAE': 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600',
+    'ADCG': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600'
   };
 
   const filteredProjects = projects.filter((proj) => {
@@ -160,6 +169,76 @@ export default function Projects() {
                         )}
                       </AnimatePresence>
                     </div>
+
+                    {/* Project Links Section - High Visibility */}
+                    {(proj.webUrl || proj.appStoreUrl || proj.playStoreUrl || proj.apkUrl || proj.demoUrl) && (
+                      <div className="mb-6 p-4 rounded-xl bg-gray-900/60 border border-gray-800/80 shadow-inner">
+                        <div className="flex items-center gap-1.5 mb-2.5">
+                          <span className="flex h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
+                          <span className="font-mono text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Launch & View Platform:</span>
+                        </div>
+                        <div className="flex flex-wrap gap-2.5">
+                          {proj.webUrl && (
+                            <a
+                              href={proj.webUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:text-white hover:bg-cyan-500/20 hover:border-cyan-400 hover:scale-[1.03] active:scale-[0.98] text-xs font-mono font-medium transition-all duration-300 shadow-[0_0_12px_rgba(6,182,212,0.06)] hover:shadow-[0_0_20px_rgba(6,182,212,0.25)]"
+                            >
+                              <Globe className="h-3.5 w-3.5 text-cyan-400" />
+                              Live Web
+                              <ArrowUpRight className="h-3 w-3 text-cyan-400/70" />
+                            </a>
+                          )}
+                          {proj.appStoreUrl && (
+                            <a
+                              href={proj.appStoreUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-violet-500/10 border border-violet-500/30 text-violet-300 hover:text-white hover:bg-violet-500/20 hover:border-violet-400 hover:scale-[1.03] active:scale-[0.98] text-xs font-mono font-medium transition-all duration-300 shadow-[0_0_12px_rgba(139,92,246,0.06)] hover:shadow-[0_0_20px_rgba(139,92,246,0.25)]"
+                            >
+                              <Apple className="h-3.5 w-3.5 text-violet-400" />
+                              App Store
+                              <ArrowUpRight className="h-3 w-3 text-violet-400/70" />
+                            </a>
+                          )}
+                          {proj.playStoreUrl && (
+                            <a
+                              href={proj.playStoreUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:text-white hover:bg-emerald-500/20 hover:border-emerald-400 hover:scale-[1.03] active:scale-[0.98] text-xs font-mono font-medium transition-all duration-300 shadow-[0_0_12px_rgba(16,185,129,0.06)] hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]"
+                            >
+                              <Play className="h-3.5 w-3.5 text-emerald-400 fill-emerald-400/10" />
+                              Google Play
+                              <ArrowUpRight className="h-3 w-3 text-emerald-400/70" />
+                            </a>
+                          )}
+                          {proj.apkUrl && (
+                            <a
+                              href={proj.apkUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:text-white hover:bg-amber-500/20 hover:border-amber-400 hover:scale-[1.03] active:scale-[0.98] text-xs font-mono font-medium transition-all duration-300 shadow-[0_0_12px_rgba(245,158,11,0.06)] hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]"
+                            >
+                              <Download className="h-3.5 w-3.5 text-amber-400 animate-bounce" />
+                              Download APK
+                            </a>
+                          )}
+                          {proj.demoUrl && (
+                            <a
+                              href={proj.demoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-800/80 border border-gray-700 text-gray-200 hover:text-white hover:bg-gray-700 hover:scale-[1.03] active:scale-[0.98] text-xs font-mono font-medium transition-all duration-300"
+                            >
+                              <ExternalLink className="h-3.5 w-3.5 text-gray-300" />
+                              View Demo
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Technologies Tag List */}
                     <div className="flex flex-wrap gap-1.5 pt-4 border-t border-gray-800/40">

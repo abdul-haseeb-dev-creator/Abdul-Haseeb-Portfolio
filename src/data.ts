@@ -96,6 +96,21 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: 'Rizq Mart Grocery Platform',
+    category: 'E-commerce Ecosystem',
+    description: 'Developed and maintained the complete Rizq Mart grocery ecosystem, including Android & iOS mobile applications (Flutter) and Laravel-based backend services, delivering a seamless online grocery shopping experience.',
+    features: [
+      'Implemented core e-commerce features such as product catalog management, user authentication, cart and checkout flow, order management, secure payments, real-time order tracking, notifications, and promotional offers.',
+      'Managed the full software development lifecycle, including API development and integration, performance optimization, testing, deployment, bug fixing, and ongoing production support for both Android and iOS platforms.',
+      'Built and integrated scalable Laravel REST API services to sync inventory, manage users, and deliver instant transactional updates.'
+    ],
+    technologies: ['Flutter', 'Laravel', 'PHP', 'E-commerce Platform', 'Mobile App Development', 'REST APIs', 'MySQL'],
+    webUrl: 'https://rizq-mart.com/',
+    appStoreUrl: 'https://apps.apple.com/us/app/rizq-mart/id6753622737',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.rizq.mart',
+    platforms: ['iOS', 'Android', 'Web']
+  },
+  {
     title: 'Motboy Driver Application',
     category: 'Mobile App Development',
     description: 'Fully developed high-performance React Native driver-focused application from UI design to production deployment, featuring real-time logistics tracking and booking management workflows.',
@@ -105,6 +120,7 @@ export const projects: Project[] = [
       'Managed end-to-end debugging, testing, and production-ready store releases.'
     ],
     technologies: ['React Native', 'Mobile App Development', 'RESTful APIs', 'Real-time Sync', 'Rider Workflow'],
+    apkUrl: 'https://demo.digitalsetgo.com/moto_admin/Motoboy_rider.apk',
     platforms: ['iOS', 'Android']
   },
   {
@@ -117,6 +133,7 @@ export const projects: Project[] = [
       'Handled full application lifecycle including local sandbox development, testing, and multi-store release support.'
     ],
     technologies: ['React Native', 'Mobile App Development', 'API Integration', 'User Auth', 'Performance Optimization'],
+    apkUrl: 'https://demo.digitalsetgo.com/moto_admin/Motoboy_delivery.apk',
     platforms: ['iOS', 'Android']
   },
   {
@@ -143,6 +160,9 @@ export const projects: Project[] = [
       'Configured high-fidelity mobile UI elements including interactive plus/minus cart controls, favorite wishlist highlights, and sticky navigation tabs.'
     ],
     technologies: ['React Native', 'Magento API', 'E-commerce UI', 'Redux State', 'RESTful Services'],
+    webUrl: 'https://adilstore.com/',
+    appStoreUrl: 'https://apps.apple.com/ae/app/adil-store/id1532754654',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.aladil.android&hl=en',
     platforms: ['iOS', 'Android', 'Web']
   },
   {
@@ -158,6 +178,9 @@ export const projects: Project[] = [
       'Built comprehensive administrative modules for recipe moderation, content management, and user profiles.'
     ],
     technologies: ['React Native', 'Laravel', 'UI/UX Design', 'REST APIs', 'Admin Modules', 'MySQL'],
+    webUrl: 'https://dishdish.us/',
+    appStoreUrl: 'https://apps.apple.com/us/app/dish-dish-online-cookbook/id649276240',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.dishdish.cookbook',
     platforms: ['iOS', 'Android', 'Web']
   },
   {
@@ -247,6 +270,7 @@ export const projects: Project[] = [
       'Optimized database indexes and web platform performance, delivering rapid loading speeds and full mobile responsiveness.'
     ],
     technologies: ['Laravel', 'PHP', 'E-commerce Platform', 'Inventory Sync', 'Responsive Design'],
+    webUrl: 'https://ethanallen-uae.com/',
     platforms: ['Web']
   },
   {
@@ -291,6 +315,133 @@ export const projects: Project[] = [
     ],
     technologies: ['React Native Expo', 'React.js', 'Node.js', 'Prisma ORM', 'Real-time Tracking', 'Payment Integrations'],
     platforms: ['iOS', 'Android', 'Web']
+  },
+  {
+    title: 'REFIX Facility Services – Corporate Website',
+    category: 'Corporate Web Platform',
+    description: "REFIX Facility Services is a modern corporate website developed for a UAE-based facility management company. The website showcases the company's integrated facility management services, maintenance solutions, specialized services, and business sectors through a clean, responsive, and user-friendly interface. It includes service pages, contact forms, quotation requests, and an optimized layout to provide a seamless browsing experience across desktop, tablet, and mobile devices. The project focuses on performance, maintainability, and scalable backend architecture using Laravel.",
+    features: [
+      'Responsive & Mobile-Friendly Design across desktop, tablet, and mobile screens.',
+      'Corporate Business Website with specialized sector information and Integrated Facility Management services.',
+      'Dynamic Service Management and optimized layouts for specialized services.',
+      'Quote Request Form and interactive contact/inquiry forms for direct customer acquisition.',
+      'SEO-Friendly structure with fast loading performance to ensure high organic search rankings.',
+      'Laravel MVC Architecture utilizing a secure PHP backend with scalable code structuring.',
+      'Clean, pixel-perfect, modern corporate UI/UX designs to build high brand authority.'
+    ],
+    technologies: ['Laravel', 'PHP', 'Bootstrap', 'JavaScript', 'HTML5', 'CSS3', 'Corporate Website'],
+    webUrl: 'https://refixservices.ae/',
+    platforms: ['Web']
+  },
+  {
+    title: 'EMX Motors',
+    category: 'E-Commerce Platform',
+    description: 'EMX Motors is a modern e-commerce platform developed for a UAE-based electric bike retailer. The website showcases premium electric motorcycles, accessories, and performance upgrades with an intuitive shopping experience. It features product catalogs, inquiry forms, responsive design, and a scalable Laravel backend for efficient content and product management.',
+    features: [
+      'E-commerce Product Catalog showcasing premium electric motorcycles and performance upgrades.',
+      'Responsive Design tailored for seamless desktop, tablet, and mobile user experiences.',
+      'Interactive Product Inquiry Forms connecting customers directly with sales teams.',
+      'SEO Optimized pages with semantic elements to boost search visibility.',
+      'Laravel Backend for secure, scalable administrative content and catalog management.',
+      'Fast Performance metrics featuring heavy-duty caching and asset optimizations.',
+      'Secure PHP Development ensuring reliable transactions and client-data protection.'
+    ],
+    technologies: ['Laravel', 'PHP', 'HTML5', 'CSS3', 'JavaScript', 'E-Commerce'],
+    webUrl: 'https://www.emxmotors.com/',
+    platforms: ['Web']
+  },
+  {
+    title: 'SurRon ME',
+    category: 'Distributor Showcase Website',
+    description: 'SurRon ME is a WordPress-based website developed for an electric motorcycle distributor in the UAE. The website presents electric bike models, specifications, accessories, booking inquiries, and dealership information through a responsive and user-friendly interface designed for excellent browsing across all devices.',
+    features: [
+      'WordPress CMS customized with tailored templates for the SurRon distributor platform.',
+      'Responsive Design with beautiful layouts adjusted for high usability across all viewport sizes.',
+      'Comprehensive Product Showcase displaying electric bike models, accessories, and parts specs.',
+      'Interactive Inquiry Forms optimized for booking test rides and dealership requests.',
+      'SEO Friendly configuration to rank highly on search engines for UAE electric bike terms.',
+      'Easy Content Management enabling client-side non-technical staff to make rapid content changes.'
+    ],
+    technologies: ['WordPress', 'PHP', 'HTML5', 'CSS3', 'Showcase Website'],
+    webUrl: 'https://surronme.com/',
+    platforms: ['Web']
+  },
+  {
+    title: 'Casa Vista Development',
+    category: 'Premium Real Estate Portal',
+    description: 'Casa Vista Development is a premium real estate website built using Laravel and React.js. The platform highlights luxury residential and commercial developments with a modern user experience, optimized performance, and responsive layouts. Dynamic content management and interactive UI components ensure a seamless experience for potential clients.',
+    features: [
+      'Laravel API Backend providing secure, high-performance web service endpoints.',
+      'React.js Frontend enabling dynamic, fluid, and real-time user experiences.',
+      'Responsive UI design utilizing generous padding and sleek minimal aesthetic properties.',
+      'Luxury Property Showcase with rich multimedia support and detailed property details panels.',
+      'Interactive Contact Forms for lead capture and developer inquiries.',
+      'Optimized Performance via lazy loading, component-level caching, and smart asset delivery.'
+    ],
+    technologies: ['Laravel', 'React.js', 'PHP', 'HTML5', 'CSS3', 'Real Estate UI'],
+    webUrl: 'https://casavistadevelopment.com/',
+    platforms: ['Web']
+  },
+  {
+    title: 'Jamoka Properties',
+    category: 'Real Estate Showcase',
+    description: 'Jamoka Properties is a responsive real estate website developed with WordPress to showcase residential and commercial properties. The platform provides an easy property browsing experience, inquiry forms, and a content management system that enables seamless updates.',
+    features: [
+      'Dynamic Property Listings with advanced filtering for residential and commercial units.',
+      'WordPress CMS customized for painless real estate agent dashboard management.',
+      'Mobile Responsive framework guaranteeing a high-quality search experience on smartphones.',
+      'Integrated Contact Forms to route inquiries directly to property agents.',
+      'SEO Optimized codebase ensuring rich search engine indexing and organic traffic growth.'
+    ],
+    technologies: ['WordPress', 'PHP', 'HTML5', 'CSS3', 'Real Estate'],
+    webUrl: 'https://jamokaproperties.com/',
+    platforms: ['Web']
+  },
+  {
+    title: 'Big Brands UAE',
+    category: 'Corporate Product Catalog',
+    description: 'Big Brands UAE is a corporate e-commerce website designed to showcase branded products through a clean and responsive interface. Built with WordPress, it enables efficient product management, content updates, and provides a smooth user experience across all devices.',
+    features: [
+      'Corporate Website featuring branded product listings, collections, and brand history.',
+      'Comprehensive Product Showcase displaying high-resolution images and specifications.',
+      'WordPress CMS architecture for easy catalog updates, inventory tags, and blogging.',
+      'Responsive Design featuring grid systems designed for ultimate readability.',
+      'SEO Friendly page setups targeting luxury brand shoppers in the UAE.'
+    ],
+    technologies: ['WordPress', 'PHP', 'HTML5', 'CSS3', 'Branding Showroom'],
+    webUrl: 'https://www.bigbrands.ae/',
+    platforms: ['Web']
+  },
+  {
+    title: 'Local Storage UAE',
+    category: 'Service Booking Website',
+    description: 'Local Storage UAE is a business website developed for self-storage solutions in the UAE. The website presents storage services, pricing information, inquiry forms, and location details through a modern and responsive design focused on user convenience.',
+    features: [
+      'Comprehensive Service Showcase describing self-storage, business storage, and packing solutions.',
+      'Interactive Inquiry Forms assisting clients with unit size selectors and quote estimations.',
+      'Responsive Design ensuring immediate customer access while on the move or in transit.',
+      'WordPress CMS base permitting seamless edits to size guides, rules, and address coordinates.',
+      'SEO Optimized to attract local neighborhood storage queries across major search providers.'
+    ],
+    technologies: ['WordPress', 'PHP', 'HTML5', 'CSS3', 'Service Website'],
+    webUrl: 'https://localstorage.ae/',
+    platforms: ['Web']
+  },
+  {
+    title: 'ADCG',
+    category: 'Corporate Business Portal',
+    description: "ADCG is a corporate website developed with Laravel to present the company's services, projects, and business solutions. The website includes dynamic content management, responsive layouts, contact forms, and a secure backend architecture designed for scalability and performance.",
+    features: [
+      'Laravel CMS providing robust server admin dashboards to modify dynamic pages and posts.',
+      'Corporate Website highlighting complex enterprise solutions, partners, and case studies.',
+      'Responsive Design and fluid layouts allowing effortless browsing on all major device platforms.',
+      'Highly secure Contact Forms preventing spam and tracking client submission statuses.',
+      'Secure Backend architecture designed for multi-tier user groups and seamless server migrations.',
+      'SEO Friendly structured data markup to enhance search page snippets.'
+    ],
+    technologies: ['Laravel', 'PHP', 'HTML5', 'CSS3', 'JavaScript', 'Corporate Portal'],
+    webUrl: 'https://www.adcg.ae/',
+    platforms: ['Web']
   }
 ];
 

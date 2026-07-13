@@ -193,9 +193,6 @@ export default function App() {
             {/* Client Testimonials slider */}
             <Testimonials />
 
-            {/* Education timeline */}
-            <Education />
-
             {/* Frequently Asked Questions */}
             <FAQ />
 

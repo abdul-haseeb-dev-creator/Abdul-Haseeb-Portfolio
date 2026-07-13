@@ -24,6 +24,10 @@ export interface Project {
   features: string[];
   technologies: string[];
   webUrl?: string;
+  playStoreUrl?: string;
+  appStoreUrl?: string;
+  apkUrl?: string;
+  demoUrl?: string;
   platforms?: string[]; // ['iOS', 'Android', 'Web']
   imageUrl?: string;
 }
