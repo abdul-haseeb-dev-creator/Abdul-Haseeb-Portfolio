@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Linkedin, Mail, Phone, ArrowUpRight, ArrowRight, Download, FileText, Smartphone, Code, Cpu, Calendar } from 'lucide-react';
+import { Linkedin, Github, Mail, Phone, ArrowUpRight, ArrowRight, Download, FileText, Smartphone, Code, Cpu, Calendar } from 'lucide-react';
 import { personalInfo } from '../data';
 import avatarImg from '../assets/images/abdul_haseeb_avatar_1783331580357.jpg';
 
@@ -177,6 +177,15 @@ export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-gray-900 border border-gray-800 hover:border-violet-500/30 text-gray-400 hover:text-violet-400 transition-all hover:scale-105"
+                aria-label="GitHub Profile"
+              >
+                <Github className="h-4 w-4" />
               </a>
               <a
                 href="https://api.whatsapp.com/send?phone=923158494192&text=Hi%20Abdul%20Haseeb!%20%F0%9F%91%8B%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work.%20I'm%20looking%20for%20a%20Full%20Stack%20Developer%20for%20a%20project%20and%20would%20love%20to%20discuss%20it%20with%20you.%20If%20you're%20available,%20please%20let%20me%20know.%0A%0ALooking%20forward%20to%20connecting!"

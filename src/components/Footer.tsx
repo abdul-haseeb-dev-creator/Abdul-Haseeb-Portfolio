@@ -1,5 +1,5 @@
 import { personalInfo } from '../data';
-import { Linkedin, Mail, Phone, ArrowUp } from 'lucide-react';
+import { Linkedin, Github, Mail, Phone, ArrowUp } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (section: string) => void;
@@ -49,6 +49,15 @@ export default function Footer({ onNavigate }: FooterProps) {
             aria-label="LinkedIn"
           >
             <Linkedin className="h-4 w-4" />
+          </a>
+          <a
+            href={personalInfo.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-lg bg-gray-900 border border-gray-800 text-gray-400 hover:text-white transition-colors"
+            aria-label="GitHub"
+          >
+            <Github className="h-4 w-4" />
           </a>
           <a
             href={`mailto:${personalInfo.email}`}

@@ -144,28 +144,82 @@ export default function Projects() {
                     <div className="mb-6">
                       <button
                         onClick={() => setExpandedIndex(isExpanded ? null : idx)}
-                        className="font-mono text-xs text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1"
+                        className="font-mono text-xs text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 bg-cyan-950/20 px-3 py-1.5 rounded-lg border border-cyan-800/30"
                       >
-                        {isExpanded ? 'Hide Details' : 'Show Complete Features'}
-                        <ArrowUpRight className={`h-3 w-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                        {isExpanded ? 'Hide Case Study' : 'View Full Case Study'}
+                        <ArrowUpRight className={`h-3.5 w-3.5 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                       </button>
 
                       {/* Accordion List */}
                       <AnimatePresence>
                         {isExpanded && (
-                          <motion.ul
+                          <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="mt-4 space-y-2.5 overflow-hidden border-t border-gray-800/80 pt-4"
+                            className="mt-4 overflow-hidden border-t border-gray-800/80 pt-4 space-y-4 text-xs"
                           >
-                            {proj.features.map((feat, featIdx) => (
-                              <li key={featIdx} className="flex gap-2 items-start text-xs text-gray-400 leading-relaxed font-light">
-                                <span className="text-violet-400 mt-0.5"><Check className="h-3.5 w-3.5" /></span>
-                                <span>{feat}</span>
-                              </li>
-                            ))}
-                          </motion.ul>
+                            {/* If deep-case study fields exist, render them beautifully */}
+                            {proj.problem ? (
+                              <div className="space-y-3.5 text-gray-400 font-light leading-relaxed">
+                                <div className="p-3 rounded-xl bg-violet-950/15 border border-violet-900/20">
+                                  <span className="font-mono text-[10px] uppercase tracking-wider text-violet-400 font-bold block mb-1">⚠️ The Problem:</span>
+                                  <p>{proj.problem}</p>
+                                </div>
+                                <div className="p-3 rounded-xl bg-cyan-950/15 border border-cyan-900/20">
+                                  <span className="font-mono text-[10px] uppercase tracking-wider text-cyan-400 font-bold block mb-1">⚡ The Solution:</span>
+                                  <p>{proj.solution}</p>
+                                </div>
+                                {proj.responsibilities && (
+                                  <div className="p-3 rounded-xl bg-gray-900/50 border border-gray-800/40">
+                                    <span className="font-mono text-[10px] uppercase tracking-wider text-gray-300 font-bold block mb-1.5">🛠️ My Responsibilities:</span>
+                                    <ul className="space-y-1.5 pl-1">
+                                      {proj.responsibilities.map((resp, rIdx) => (
+                                        <li key={rIdx} className="flex gap-2 items-start text-gray-400">
+                                          <span className="text-cyan-400 mt-1">•</span>
+                                          <span>{resp}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                                {proj.challenges && (
+                                  <div className="p-3 rounded-xl bg-amber-950/10 border border-amber-900/15">
+                                    <span className="font-mono text-[10px] uppercase tracking-wider text-amber-400 font-bold block mb-1">🔥 Key Challenge & Resolution:</span>
+                                    <p>{proj.challenges}</p>
+                                  </div>
+                                )}
+                                {proj.results && (
+                                  <div className="p-3 rounded-xl bg-emerald-950/10 border border-emerald-900/15">
+                                    <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 font-bold block mb-1">🏆 Quantifiable Results:</span>
+                                    <p className="text-emerald-300/90 font-medium">{proj.results}</p>
+                                  </div>
+                                )}
+                                {proj.businessImpact && (
+                                  <div className="p-3 rounded-xl bg-blue-950/10 border border-blue-900/15">
+                                    <span className="font-mono text-[10px] uppercase tracking-wider text-blue-400 font-bold block mb-1">📈 Business Impact:</span>
+                                    <p className="text-blue-300/90 font-medium">{proj.businessImpact}</p>
+                                  </div>
+                                )}
+                                {proj.atsSummary && (
+                                  <div className="pt-2 border-t border-gray-900">
+                                    <span className="font-mono text-[9px] uppercase tracking-widest text-gray-500 font-semibold block mb-1">ATS Semantic Keywords:</span>
+                                    <p className="font-mono text-[10px] text-gray-500 leading-relaxed">{proj.atsSummary}</p>
+                                  </div>
+                                )}
+                              </div>
+                            ) : (
+                              /* Fallback list for legacy/simple projects */
+                              <ul className="space-y-2">
+                                {proj.features.map((feat, featIdx) => (
+                                  <li key={featIdx} className="flex gap-2 items-start text-xs text-gray-400 leading-relaxed font-light">
+                                    <span className="text-violet-400 mt-0.5"><Check className="h-3.5 w-3.5" /></span>
+                                    <span>{feat}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </motion.div>
                         )}
                       </AnimatePresence>
                     </div>

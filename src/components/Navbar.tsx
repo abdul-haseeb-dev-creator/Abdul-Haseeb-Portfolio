@@ -98,6 +98,15 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
               <Linkedin className="h-4 w-4" />
             </a>
             <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="p-2 rounded-xl border border-gray-800 text-gray-400 hover:text-white hover:border-violet-500/40 transition-all hover:bg-violet-950/20"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+            <a
               href={`mailto:${personalInfo.email}`}
               aria-label="Email"
               className="p-2 rounded-xl border border-gray-800 text-gray-400 hover:text-white hover:border-violet-500/40 transition-all hover:bg-violet-950/20"

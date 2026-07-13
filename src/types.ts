@@ -30,6 +30,14 @@ export interface Project {
   demoUrl?: string;
   platforms?: string[]; // ['iOS', 'Android', 'Web']
   imageUrl?: string;
+  // Deep-dive Case Study fields for Recruiter & ATS optimization
+  problem?: string;
+  solution?: string;
+  responsibilities?: string[];
+  challenges?: string;
+  results?: string;
+  businessImpact?: string;
+  atsSummary?: string;
 }
 
 export interface Education {
