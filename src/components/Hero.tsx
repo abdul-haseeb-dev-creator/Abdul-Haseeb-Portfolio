@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Linkedin, Github, Mail, Phone, ArrowUpRight, ArrowRight, Download, FileText, Smartphone, Code, Cpu, Calendar } from 'lucide-react';
 import { personalInfo } from '../data';
-import avatarImg from '../assets/images/abdul_haseeb_avatar_1783331580357.jpg';
+import avatarImg from '../assets/images/abdulhaseeb.jpeg';
 
 interface HeroProps {
   onContactClick: () => void;
@@ -223,7 +223,7 @@ export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96"
+            className="relative w-72 aspect-[3/4] sm:w-80 md:w-96"
           >
             {/* Ambient Background Glow Halo */}
             <div className="absolute inset-[-10px] rounded-full bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-500 opacity-20 blur-[30px] animate-pulse" />
@@ -235,7 +235,7 @@ export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
                   src={avatarImg}
                   alt={personalInfo.name}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover object-top opacity-90 transition-transform duration-700 hover:scale-105"
                   onError={(e) => {
                     // Fallback to high tech rendering if image fails to load
                     (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=400";
