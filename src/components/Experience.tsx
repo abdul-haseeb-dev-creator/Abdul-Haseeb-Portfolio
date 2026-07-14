@@ -15,7 +15,7 @@ export default function Experience() {
         </div>
 
         {/* Timeline Path Container */}
-        <div className="relative border-l-2 border-gray-800 ml-4 md:ml-32 space-y-12">
+        <div className="relative border-l-2 border-gray-800 ml-4 md:ml-36 lg:ml-40 space-y-12">
           
           {experiences.map((exp, idx) => (
             <motion.div
@@ -31,9 +31,9 @@ export default function Experience() {
               <span className="absolute -left-[11px] top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-violet-600 to-cyan-500 ring-4 ring-[#030712] shadow-md shadow-violet-500/20">
                 <Briefcase className="h-2.5 w-2.5 text-white" />
               </span>
-
+              
               {/* Float Duration Column on Desktop */}
-              <div className="hidden md:block absolute right-[100%] mr-12 top-1.5 text-right w-28">
+              <div className="hidden md:block absolute right-[100%] mr-6 lg:mr-10 top-1.5 text-right w-28">
                 <span className="font-mono text-xs text-violet-400 font-semibold">{exp.duration}</span>
                 <p className="font-mono text-[9px] text-gray-500 uppercase tracking-wider mt-1">{exp.location}</p>
               </div>

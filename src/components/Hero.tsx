@@ -261,19 +261,19 @@ export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-4 -right-4 glass-panel rounded-2xl p-3 border border-cyan-500/30 flex items-center gap-2 shadow-lg z-20"
+              className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 glass-panel rounded-2xl p-2.5 sm:p-3 border border-cyan-500/30 flex items-center gap-1.5 sm:gap-2 shadow-lg z-20 scale-90 sm:scale-100 origin-top-right"
             >
-              <Smartphone className="h-4 w-4 text-cyan-400" />
-              <span className="font-mono text-[10px] text-white font-medium">10+ Shipped Apps</span>
+              <Smartphone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-400" />
+              <span className="font-mono text-[9px] sm:text-[10px] text-white font-medium">10+ Shipped Apps</span>
             </motion.div>
 
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute -bottom-2 -left-4 glass-panel rounded-2xl p-3 border border-violet-500/30 flex items-center gap-2 shadow-lg z-20"
+              className="absolute -bottom-1 -left-2 sm:-bottom-2 sm:-left-4 glass-panel rounded-2xl p-2.5 sm:p-3 border border-violet-500/30 flex items-center gap-1.5 sm:gap-2 shadow-lg z-20 scale-90 sm:scale-100 origin-bottom-left"
             >
-              <Code className="h-4 w-4 text-violet-400" />
-              <span className="font-mono text-[10px] text-white font-medium">React Native</span>
+              <Code className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-violet-400" />
+              <span className="font-mono text-[9px] sm:text-[10px] text-white font-medium">React Native</span>
             </motion.div>
 
             {/* Core Tech Floating Badges */}
@@ -281,33 +281,33 @@ export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
             <motion.div
               animate={{ y: [0, -12, 0], rotate: [0, -1, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-12 left-4 glass-panel rounded-2xl px-3 py-2 border border-cyan-400/40 flex items-center gap-2 shadow-lg shadow-cyan-950/20 z-20"
+              className="absolute -top-10 left-2 sm:-top-12 sm:left-4 glass-panel rounded-2xl px-2.5 py-1.5 sm:px-3 sm:py-2 border border-cyan-400/40 flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-cyan-950/20 z-20 scale-90 sm:scale-100 origin-top-left"
             >
-              <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping absolute" />
-              <span className="h-2 w-2 rounded-full bg-cyan-400 relative" />
-              <span className="font-mono text-[10px] text-cyan-300 font-bold tracking-wide">React</span>
+              <span className="flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-cyan-400 animate-ping absolute" />
+              <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-cyan-400 relative" />
+              <span className="font-mono text-[9px] sm:text-[10px] text-cyan-300 font-bold tracking-wide">React</span>
             </motion.div>
 
             {/* Next.js Badge */}
             <motion.div
               animate={{ x: [0, 8, 0], y: [0, -4, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              className="absolute top-1/3 -right-12 glass-panel rounded-2xl px-3 py-2 border border-white/20 flex items-center gap-2 shadow-lg shadow-black/40 z-20"
+              className="absolute top-1/3 -right-4 sm:-right-8 lg:-right-12 glass-panel rounded-2xl px-2.5 py-1.5 sm:px-3 sm:py-2 border border-white/20 flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-black/40 z-20 scale-90 sm:scale-100 origin-right"
             >
-              <span className="flex h-2 w-2 rounded-full bg-white animate-ping absolute" />
-              <span className="h-2 w-2 rounded-full bg-white relative" />
-              <span className="font-mono text-[10px] text-white font-bold tracking-wide">Next.js</span>
+              <span className="flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-white animate-ping absolute" />
+              <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-white relative" />
+              <span className="font-mono text-[9px] sm:text-[10px] text-white font-bold tracking-wide">Next.js</span>
             </motion.div>
 
             {/* Node.js Badge */}
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
-              className="absolute -bottom-8 -right-4 glass-panel rounded-2xl px-3 py-2 border border-emerald-500/40 flex items-center gap-2 shadow-lg shadow-emerald-950/20 z-20"
+              className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-4 glass-panel rounded-2xl px-2.5 py-1.5 sm:px-3 sm:py-2 border border-emerald-500/40 flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-emerald-950/20 z-20 scale-90 sm:scale-100 origin-bottom-right"
             >
-              <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping absolute" />
-              <span className="h-2 w-2 rounded-full bg-emerald-400 relative" />
-              <span className="font-mono text-[10px] text-emerald-400 font-bold tracking-wide">Node.js</span>
+              <span className="flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400 animate-ping absolute" />
+              <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400 relative" />
+              <span className="font-mono text-[9px] sm:text-[10px] text-emerald-400 font-bold tracking-wide">Node.js</span>
             </motion.div>
 
           </motion.div>

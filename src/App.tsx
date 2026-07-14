@@ -207,27 +207,6 @@ export default function App() {
           {/* 7. Site Footer with brand indicators */}
           <Footer onNavigate={scrollToSection} />
 
-          {/* 8. Extra Widgets: Theme Toggle & Particle toggle helper */}
-          <div className="fixed bottom-6 left-6 z-40 flex items-center gap-2">
-            <div className="glass-panel py-2 px-3.5 rounded-2xl border border-gray-800/80 flex items-center gap-2.5 shadow-lg shadow-violet-950/5">
-              <Moon className="h-4 w-4 text-violet-400 animate-pulse" />
-              <span className="font-mono text-[9px] text-gray-400 uppercase tracking-widest font-semibold">
-                Cosmic Slate Mode
-              </span>
-              <button
-                onClick={() => setParticlesEnabled(!particlesEnabled)}
-                className={`p-1.5 rounded-lg border transition-all ${
-                  particlesEnabled
-                    ? 'bg-violet-950/30 border-violet-500/30 text-violet-400'
-                    : 'bg-gray-900 border-gray-800 text-gray-500'
-                }`}
-                title={particlesEnabled ? 'Disable Ambient Particles' : 'Enable Ambient Particles'}
-              >
-                <Sparkles className="h-3.5 w-3.5" />
-              </button>
-            </div>
-          </div>
-
           {/* 9. Back to Top Button */}
           <WhatsAppButton />
           <AnimatePresence>
