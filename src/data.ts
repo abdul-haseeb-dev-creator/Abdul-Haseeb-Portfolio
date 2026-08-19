@@ -36,11 +36,11 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     title: 'Tools & Workflow',
-    skills: ['Git', 'GitHub', 'Jira', 'Postman', 'Firebase', 'Magento', 'CodeIgniter', 'Agile/Scrum', 'CI/CD Pipelines']
+    skills: ['Git', 'GitHub', 'Jira', 'Postman', 'Firebase', 'PrestaShop', 'Magento', 'CodeIgniter', 'Agile/Scrum', 'CI/CD Pipelines']
   },
   {
     title: 'Cloud & DevOps',
-    skills: ['AWS (S3, EC2 Basics)', 'Docker Fundamentals', 'App Store Deployment', 'Play Store Deployment']
+    skills: ['AWS (S3, EC2 Basics)', 'Docker', 'Docker Fundamentals', 'App Store Deployment', 'Play Store Deployment']
   },
   {
     title: 'Soft Skills',
@@ -95,6 +95,38 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: 'SuperGallery.nl — E-commerce Platform',
+    category: 'E-commerce Platform',
+    description: 'Developed and optimized an e-commerce platform for SuperGallery.nl using PrestaShop, React.js, PHP, JavaScript, and RESTful APIs. Worked on frontend functionality, API integrations, backend improvements, and deployment infrastructure.',
+    features: [
+      'Developed and enhanced e-commerce functionality using PrestaShop.',
+      'Built and integrated React.js components for a modern and responsive user experience.',
+      'Integrated and consumed RESTful APIs between frontend and backend services.',
+      'Developed and customized PHP-based backend functionality.',
+      'Optimized existing APIs to improve response time, performance, and overall application efficiency.',
+      'Dockerized the application and configured the deployment environment using Docker.',
+      'Improved application performance and reliability through code and API optimization.',
+      'Worked across frontend and backend components to deliver scalable e-commerce functionality.'
+    ],
+    technologies: ['PrestaShop', 'React.js', 'JavaScript', 'PHP', 'RESTful APIs', 'Docker', 'API Optimization', 'E-commerce Development'],
+    webUrl: 'https://www.supergallery.nl/',
+    platforms: ['Web'],
+    problem: 'SuperGallery.nl required a robust, high-performance e-commerce platform with responsive frontend interfaces, optimized API communication between services, customized PHP backend logic, and containerized deployment infrastructure.',
+    solution: 'Engineered and optimized the e-commerce architecture by integrating custom React.js frontend components with PrestaShop and PHP backend services, streamlining RESTful API communication, and containerizing the application with Docker for seamless deployment.',
+    responsibilities: [
+      'Developed and enhanced core e-commerce functionality and catalog operations using PrestaShop.',
+      'Built and integrated React.js components for a responsive and modern user experience.',
+      'Integrated and consumed RESTful APIs between frontend interfaces and backend services.',
+      'Developed and customized PHP-based backend functionality to support store operations.',
+      'Optimized existing APIs to improve response time, data delivery speed, and application efficiency.',
+      'Dockerized the application and configured the deployment environment using Docker.'
+    ],
+    challenges: 'Ensuring seamless API communication between the React.js client layer and PrestaShop/PHP backend while maintaining rapid response times. Resolved through comprehensive API optimization and containerized environment configuration.',
+    results: 'Delivered an optimized, reliable, and scalable e-commerce platform with improved API response times and structured Docker deployment pipelines.',
+    businessImpact: 'Provided SuperGallery.nl with an efficient, scalable, and responsive online gallery e-commerce storefront for customer purchasing.',
+    atsSummary: 'PrestaShop Developer, React.js, JavaScript, PHP Backend, RESTful API Integration, API Optimization, Docker Containerization, E-commerce Development, Full-Stack Optimization.'
+  },
   {
     title: 'Rizq Mart Grocery Platform',
     category: 'E-commerce Ecosystem',

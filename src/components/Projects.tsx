@@ -7,8 +7,10 @@ export default function Projects() {
   const [filter, setFilter] = useState<'All' | 'Mobile' | 'Web' | 'E-commerce'>('All');
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  // Set up local self-hosted rich image cards mapping to all 14 new projects
+  // Set up local self-hosted rich image cards mapping to all projects
   const projectImages: Record<string, string> = {
+    'SuperGallery.nl — E-commerce Platform': 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=600',
+    'SuperGallery.nl': 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=600',
     'Rizq Mart Grocery Platform': 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600',
     'Motboy Driver Application': 'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
     'Motboy Customer Application': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600',
@@ -146,7 +148,7 @@ export default function Projects() {
                         onClick={() => setExpandedIndex(isExpanded ? null : idx)}
                         className="font-mono text-xs text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 bg-cyan-950/20 px-3 py-1.5 rounded-lg border border-cyan-800/30"
                       >
-                        {isExpanded ? 'Hide Case Study' : 'View Full Case Study'}
+                        {isExpanded ? 'Hide Case Study' : 'View Case Study'}
                         <ArrowUpRight className={`h-3.5 w-3.5 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                       </button>
 
@@ -172,7 +174,7 @@ export default function Projects() {
                                 </div>
                                 {proj.responsibilities && (
                                   <div className="p-3 rounded-xl bg-gray-900/50 border border-gray-800/40">
-                                    <span className="font-mono text-[10px] uppercase tracking-wider text-gray-300 font-bold block mb-1.5">🛠️ My Responsibilities:</span>
+                                    <span className="font-mono text-[10px] uppercase tracking-wider text-gray-300 font-bold block mb-1.5">🛠️ Key Contributions & Responsibilities:</span>
                                     <ul className="space-y-1.5 pl-1">
                                       {proj.responsibilities.map((resp, rIdx) => (
                                         <li key={rIdx} className="flex gap-2 items-start text-gray-400">
@@ -191,7 +193,7 @@ export default function Projects() {
                                 )}
                                 {proj.results && (
                                   <div className="p-3 rounded-xl bg-emerald-950/10 border border-emerald-900/15">
-                                    <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 font-bold block mb-1">🏆 Quantifiable Results:</span>
+                                    <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 font-bold block mb-1">🏆 Results & Delivery:</span>
                                     <p className="text-emerald-300/90 font-medium">{proj.results}</p>
                                   </div>
                                 )}
@@ -240,7 +242,7 @@ export default function Projects() {
                               className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:text-white hover:bg-cyan-500/20 hover:border-cyan-400 hover:scale-[1.03] active:scale-[0.98] text-xs font-mono font-medium transition-all duration-300 shadow-[0_0_12px_rgba(6,182,212,0.06)] hover:shadow-[0_0_20px_rgba(6,182,212,0.25)]"
                             >
                               <Globe className="h-3.5 w-3.5 text-cyan-400" />
-                              Live Web
+                              View Live Project
                               <ArrowUpRight className="h-3 w-3 text-cyan-400/70" />
                             </a>
                           )}
