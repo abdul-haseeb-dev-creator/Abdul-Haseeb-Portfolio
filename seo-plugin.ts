@@ -50,6 +50,7 @@ function jsonLd() {
       addressRegion: 'Sindh',
       addressCountry: 'PK',
     },
+    worksFor: { '@type': 'Organization', name: experiences[0].company },
     alumniOf: education.map((e) => ({ '@type': 'EducationalOrganization', name: e.school })),
     hasOccupation: {
       '@type': 'Occupation',

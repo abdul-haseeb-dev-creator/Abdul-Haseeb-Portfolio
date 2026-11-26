@@ -53,7 +53,7 @@ export const experiences: Experience[] = [
   {
     company: 'Devronix Solutions LLC',
     position: 'React Native Developer',
-    duration: 'August 2020 – June 2026',
+    duration: 'August 2020 – Present',
     location: 'Karachi, Pakistan',
     responsibilities: [
       'Architected and shipped 10+ production-ready cross-platform mobile applications in React Native, achieving 95%+ code reusability between iOS and Android platforms.',
@@ -96,6 +96,33 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: 'CinemaContinent – Mobile Application & Laravel CMS',
+    category: 'Web & Mobile Application',
+    description: 'A cinema and movie mobile application for Android and iOS, built in React Native and powered by a custom Laravel CMS that manages movies, content and app data.',
+    features: [
+      'Developed the CinemaContinent mobile application in React Native for Android and iOS.',
+      'Built the Laravel CMS and admin panel to manage movies, categories, media content and users.',
+      'Developed and integrated REST APIs between the mobile app and the Laravel backend.',
+      'Handled UI development, API integration, testing, debugging and App Store / Google Play deployment.'
+    ],
+    technologies: ['React Native', 'Laravel', 'PHP', 'MySQL', 'REST APIs', 'CMS', 'Admin Panel'],
+    platforms: ['iOS', 'Android', 'Web']
+  },
+  {
+    title: 'Renter Credit – Landlord & Tenant Mobile Applications with Laravel CMS',
+    category: 'Property Management Software',
+    description: 'A property and rental management platform with separate Landlord and Tenant mobile applications built in React Native and a Laravel CMS for administration.',
+    features: [
+      'Developed the Landlord mobile application for managing properties, tenants and rental records.',
+      'Developed the Tenant mobile application for rent details, payments history and communication with landlords.',
+      'Built the Laravel CMS and admin panel for user management, properties, tenancies and reporting.',
+      'Integrated secure REST APIs to keep both mobile apps and the CMS in sync in real time.',
+      'Managed testing, bug fixing, deployment and production support for Android and iOS.'
+    ],
+    technologies: ['React Native', 'Laravel', 'PHP', 'MySQL', 'REST APIs', 'Property Management', 'CMS'],
+    platforms: ['iOS', 'Android', 'Web']
+  },
   {
     title: 'SuperGallery.nl — E-commerce Platform',
     category: 'E-commerce Platform',
