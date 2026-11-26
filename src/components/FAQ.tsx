@@ -9,11 +9,14 @@ import {
   Smartphone, 
   Layout, 
   RefreshCw, 
-  Users, 
   ShieldCheck, 
   Clock, 
-  Mail 
+  Mail,
+  Building,
+  ShoppingCart,
+  Factory
 } from 'lucide-react';
+import { faqs as faqData } from '../data';
 
 interface FAQItem {
   question: string;
@@ -25,68 +28,24 @@ interface FAQItem {
 export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const faqs: FAQItem[] = [
-    {
-      category: "About Me",
-      question: "Who are you?",
-      answer: "I'm Abdul Haseeb, a React Native and Full-Stack JavaScript Developer with over 5 years of experience building high-performance mobile and web applications. I specialize in creating scalable, user-friendly, and production-ready solutions.",
-      icon: <User className="h-5 w-5 text-violet-400" />
-    },
-    {
-      category: "Services",
-      question: "What services do you offer?",
-      answer: "I provide a wide range of development services, including: React Native App Development, Cross-Platform Mobile Applications (Android & iOS), React.js & Next.js Web Development, Node.js Backend Development, REST API & Firebase Integration, Laravel Backend Development, Bug Fixing & Performance Optimization, App Store & Google Play Store Deployment, and UI Implementation from Figma.",
-      icon: <Briefcase className="h-5 w-5 text-cyan-400" />
-    },
-    {
-      category: "Technologies",
-      question: "Which technologies do you work with?",
-      answer: "My primary tech stack includes: React Native, React.js, Next.js, JavaScript (ES6+), TypeScript, Node.js, Express.js, Laravel, Firebase, MongoDB, MySQL, Prisma ORM, and Git & GitHub.",
-      icon: <Code2 className="h-5 w-5 text-emerald-400" />
-    },
-    {
-      category: "Platforms",
-      question: "Do you develop both Android and iOS applications?",
-      answer: "Yes. I build cross-platform mobile applications using React Native that run smoothly on both Android and iOS from a single codebase.",
-      icon: <Smartphone className="h-5 w-5 text-fuchsia-400" />
-    },
-    {
-      category: "Figma to Code",
-      question: "Can you convert Figma designs into fully functional apps?",
-      answer: "Absolutely. I can transform Figma designs into responsive, pixel-perfect mobile and web applications while maintaining excellent performance and clean code.",
-      icon: <Layout className="h-5 w-5 text-amber-400" />
-    },
-    {
-      category: "Collaboration",
-      question: "Can you work on existing projects?",
-      answer: "Yes. Whether you need new features, bug fixes, UI improvements, API integration, or performance optimization, I can join an existing project and contribute effectively.",
-      icon: <RefreshCw className="h-5 w-5 text-pink-400" />
-    },
-    {
-      category: "Clients",
-      question: "Do you work with startups and businesses?",
-      answer: "Yes. I collaborate with startups, agencies, and businesses of all sizes to build reliable digital products tailored to their goals.",
-      icon: <Users className="h-5 w-5 text-teal-400" />
-    },
-    {
-      category: "Quality Assurance",
-      question: "How do you ensure code quality?",
-      answer: "I follow industry best practices by writing clean, reusable, and maintainable code, using Git for version control, conducting thorough testing, and optimizing application performance.",
-      icon: <ShieldCheck className="h-5 w-5 text-indigo-400" />
-    },
-    {
-      category: "Availability",
-      question: "Are you available for freelance or full-time opportunities?",
-      answer: "Yes. I'm available for freelance projects, contract work, and full-time remote opportunities.",
-      icon: <Clock className="h-5 w-5 text-rose-400" />
-    },
-    {
-      category: "Contact",
-      question: "How can I contact you?",
-      answer: "You can reach me through the Contact section of this portfolio or connect with me via LinkedIn or email. I'm always happy to discuss new projects and collaboration opportunities.",
-      icon: <Mail className="h-5 w-5 text-sky-400" />
-    }
+  const icons = [
+    <User className="h-5 w-5 text-violet-400" />,
+    <Briefcase className="h-5 w-5 text-cyan-400" />,
+    <Code2 className="h-5 w-5 text-emerald-400" />,
+    <Smartphone className="h-5 w-5 text-fuchsia-400" />,
+    <Building className="h-5 w-5 text-orange-400" />,
+    <ShoppingCart className="h-5 w-5 text-pink-400" />,
+    <Factory className="h-5 w-5 text-lime-400" />,
+    <Layout className="h-5 w-5 text-amber-400" />,
+    <RefreshCw className="h-5 w-5 text-pink-400" />,
+    <ShieldCheck className="h-5 w-5 text-indigo-400" />,
+    <Clock className="h-5 w-5 text-rose-400" />,
+    <Mail className="h-5 w-5 text-sky-400" />,
   ];
+  const faqs: FAQItem[] = faqData.map((f, i) => ({
+    ...f,
+    icon: icons[i] ?? <HelpCircle className="h-5 w-5 text-gray-400" />,
+  }));
 
   const toggleFAQ = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);

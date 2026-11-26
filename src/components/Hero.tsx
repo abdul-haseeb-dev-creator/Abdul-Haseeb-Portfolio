@@ -12,12 +12,13 @@ interface HeroProps {
 export default function Hero({ onContactClick, onProjectsClick }: HeroProps) {
   const roles = [
     'Full Stack Developer',
-    'React & Next.js Developer',
-    'React Native Developer',
-    'Laravel & Node.js Developer',
-    'SaaS Developer',
+    'Senior React Native Developer',
+    'React.js & Next.js Developer',
+    'Node.js & Laravel Developer',
+    'Android & iOS App Developer',
+    'SaaS, ERP & CRM Developer',
+    'E-commerce Developer',
     'AI Automation Engineer',
-    'API Integration Specialist',
   ];
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
