@@ -2,13 +2,14 @@ import { Experience, Project, Education, Achievement, Service, SkillCategory } f
 
 export const personalInfo = {
   name: 'Abdul Haseeb',
-  title: 'Full-Stack JavaScript & React Native Developer',
+  title: 'Full Stack Developer | React Native, React.js, Next.js, Node.js & Laravel',
+  siteUrl: 'https://abdul-haseeb-portfolio-eta.vercel.app',
   email: 'abdulhaseeb158441@gmail.com',
   phone: '03158494192',
   location: 'Karachi, Sindh, Pakistan',
   linkedin: 'https://linkedin.com/in/abdul-haseeb-1980b516a',
   github: 'https://github.com/abdul-haseeb-dev-creator',
-  summary: 'Results-driven Full-Stack Developer with 5+ years of hands-on experience in React Native and React.js, delivering 10+ production-ready mobile and web applications across e-commerce, logistics, real estate, and food delivery domains. Proven ability to own complete project lifecycles from UI/UX design to deployment and store submissions.',
+  summary: 'Senior Full Stack Developer and React Native Developer with 5+ years of experience building custom web applications, cross-platform Android & iOS apps, SaaS products, ERP, CRM and e-commerce software with React.js, Next.js, Node.js, Laravel and PHP. Delivered 10+ production apps for food delivery, grocery, logistics, real estate and multi-vendor marketplace businesses, from UI design to App Store and Play Store deployment.',
   yearsOfExperience: 5,
   completedProjects: 10,
 };
@@ -628,44 +629,122 @@ export const achievements: Achievement[] = [
 
 export const services: Service[] = [
   {
-    title: 'Full Stack Development',
-    description: 'End-to-end web architectures using Node.js, Laravel, React, and modern databases. Shipped with robust security, state hydration, and smooth performance.',
+    title: 'Full Stack Web Development',
+    description: 'Custom web application development with React.js, Next.js, Node.js, Laravel and PHP: responsive frontends, secure backends, admin dashboards and web portals for businesses.',
     icon: 'Layers'
   },
   {
-    title: 'SaaS Development',
-    description: 'Engineering scalable Multi-Tenant Software-as-a-Service portals featuring dynamic billing subscription, self-serve client onboarding, and secure user permissions management.',
-    icon: 'Boxes'
-  },
-  {
-    title: 'Web Development',
-    description: 'Building highly responsive, fast-loading, pixel-perfect SPA web platforms with React, Vite, and tailwind. Styled with subtle fluid micro-animations.',
-    icon: 'Globe'
-  },
-  {
-    title: 'Mobile App Development',
-    description: 'Expert native-feeling cross-platform iOS & Android apps developed using React Native & Expo, boasting 95%+ shared codebase and optimized animations.',
+    title: 'Mobile App Development (Android & iOS)',
+    description: 'Cross-platform mobile apps with React Native CLI and Expo, written in TypeScript: UI development, Firebase, push notifications, API integration, testing and App Store / Play Store deployment.',
     icon: 'Smartphone'
   },
   {
-    title: 'AI Automation',
-    description: 'Integrating state-of-the-art LLMs, Gemini AI, custom prompt automation engines, and automated workflows to optimize business delivery speeds.',
-    icon: 'Bot'
+    title: 'SaaS Application Development',
+    description: 'Scalable multi-tenant SaaS products with subscription billing, self-serve onboarding, role-based permissions and analytics dashboards.',
+    icon: 'Boxes'
   },
   {
-    title: 'API Integration',
-    description: 'Designing ultra-fast, robust, secure RESTful & GraphQL API architectures with clean caching schemes and third-party gateway synchronization.',
+    title: 'ERP, HRM & Business Software',
+    description: 'Custom ERP systems and business management software: HR management, payroll, attendance, inventory and stock management, POS, invoicing and billing, built to automate day-to-day operations.',
+    icon: 'Building'
+  },
+  {
+    title: 'CRM Software Development',
+    description: 'Custom CRM development for sales and real estate teams: lead tracking, client follow-ups, property management, order management and reporting, with mobile CRM apps for field agents.',
+    icon: 'Users'
+  },
+  {
+    title: 'School Management Software',
+    description: 'School management systems and school ERP: student, teacher and fee management, attendance, examinations, parent and student portals, LMS features and educational mobile apps.',
+    icon: 'GraduationCap'
+  },
+  {
+    title: 'E-commerce & Marketplace Development',
+    description: 'E-commerce websites and apps on Laravel, Magento and PrestaShop, plus multi-vendor marketplaces: product management, shopping cart, payment gateway integration, order tracking and admin panels.',
+    icon: 'ShoppingCart'
+  },
+  {
+    title: 'Delivery, Logistics & Booking Apps',
+    description: 'Food delivery, grocery delivery, ride booking and service booking apps with separate customer, driver and merchant apps, real-time tracking and a central admin panel.',
+    icon: 'Truck'
+  },
+  {
+    title: 'REST & GraphQL API Integration',
+    description: 'REST API and GraphQL API development, third-party API integration, payment gateways and mobile app backend development with clean caching and security.',
     icon: 'Workflow'
   },
   {
-    title: 'MVP Development',
-    description: 'Rapid bootstrapping of minimum viable products with clean, production-grade codebase to validate business models and raise capital swiftly.',
-    icon: 'Rocket'
+    title: 'AI Automation',
+    description: 'Business automation with LLMs such as Gemini, prompt-driven workflows and AI features integrated into existing web and mobile apps.',
+    icon: 'Bot'
   },
   {
-    title: 'Bug Fixing & Maintenance',
-    description: 'Precise performance auditing, continuous backend upgrades, App Store/Play Store deployments, and resolving tricky production-level bugs.',
+    title: 'Performance, Maintenance & Migration',
+    description: 'Website performance optimization, website and app maintenance, website migration, bug fixing and ongoing production support.',
     icon: 'Wrench'
+  }
+];
+
+export const faqs = [
+  {
+    category: 'About Me',
+    question: 'Who is Abdul Haseeb?',
+    answer: "Abdul Haseeb is a Senior Full Stack Developer and React Native Developer based in Karachi, Pakistan, with 5+ years of experience building web applications, Android and iOS apps, SaaS products, ERP, CRM and e-commerce software using React.js, Next.js, Node.js, Laravel and PHP."
+  },
+  {
+    category: 'Services',
+    question: 'What services do you offer?',
+    answer: 'Full stack web development, React Native mobile app development for Android and iOS, SaaS application development, custom ERP, HRM and CRM software, school management systems, e-commerce and multi-vendor marketplace development, REST and GraphQL API integration, AI automation, performance optimization and website maintenance.'
+  },
+  {
+    category: 'Technologies',
+    question: 'Which technologies do you work with?',
+    answer: 'React Native (CLI and Expo), React.js, Next.js, JavaScript (ES6+), TypeScript, Node.js, Express.js, Laravel, PHP, CodeIgniter, Magento, PrestaShop, GraphQL, Firebase, MongoDB, MySQL, SQL Server, Prisma ORM, Docker, AWS and Git.'
+  },
+  {
+    category: 'Mobile Apps',
+    question: 'Do you develop both Android and iOS applications?',
+    answer: 'Yes. I build cross-platform mobile apps with React Native that run on Android and iOS from a single codebase, and I handle API integration, push notifications, testing and App Store / Google Play deployment.'
+  },
+  {
+    category: 'Business Software',
+    question: 'Can you build ERP, HRM, CRM or school management software?',
+    answer: 'Yes. I build custom business software including ERP systems, HR management with payroll and attendance, inventory and POS systems, CRM for sales and real estate teams, and school management systems with student, fee, exam and parent portal modules.'
+  },
+  {
+    category: 'E-commerce',
+    question: 'Do you build e-commerce websites and multi-vendor marketplaces?',
+    answer: 'Yes. I have built e-commerce websites and mobile apps with Laravel, React Native, Magento and PrestaShop, including multi-vendor marketplaces with vendor dashboards, payment gateway integration, order tracking and admin panels.'
+  },
+  {
+    category: 'Industries',
+    question: 'Which industries have you built apps for?',
+    answer: 'Food delivery, grocery delivery, logistics and driver apps, ride and service booking (including home cleaning services), real estate CRM and property listing websites, fitness apps, retail e-commerce and corporate websites in Pakistan, the UAE, Europe and the US.'
+  },
+  {
+    category: 'Figma to Code',
+    question: 'Can you convert Figma designs into fully functional apps?',
+    answer: 'Yes. I turn Figma designs into responsive, pixel-perfect web and mobile apps with clean code and strong performance.'
+  },
+  {
+    category: 'Collaboration',
+    question: 'Can you work on existing projects?',
+    answer: 'Yes. I can join an existing project for new features, bug fixing, UI improvements, API integration, performance optimization, maintenance or migration.'
+  },
+  {
+    category: 'Quality Assurance',
+    question: 'How do you ensure code quality?',
+    answer: 'I write clean, reusable code, use Git and code reviews, write unit tests with Jest, test on real devices and profile performance before every release.'
+  },
+  {
+    category: 'Availability',
+    question: 'Are you available for freelance or full-time opportunities?',
+    answer: "Yes. I'm available for full-time remote roles, contract work and freelance projects."
+  },
+  {
+    category: 'Contact',
+    question: 'How can I contact you?',
+    answer: 'Use the contact form on this portfolio, email me, or connect with me on LinkedIn.'
   }
 ];
 

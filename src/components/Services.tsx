@@ -7,7 +7,12 @@ import {
   Bot, 
   Workflow, 
   Rocket, 
-  Wrench 
+  Wrench,
+  Building,
+  Users,
+  GraduationCap,
+  ShoppingCart,
+  Truck
 } from 'lucide-react';
 import { services } from '../data';
 
@@ -30,6 +35,16 @@ export default function Services() {
         return <Rocket className="h-6 w-6 text-rose-400" />;
       case 'Wrench':
         return <Wrench className="h-6 w-6 text-amber-400" />;
+      case 'Building':
+        return <Building className="h-6 w-6 text-orange-400" />;
+      case 'Users':
+        return <Users className="h-6 w-6 text-teal-400" />;
+      case 'GraduationCap':
+        return <GraduationCap className="h-6 w-6 text-yellow-400" />;
+      case 'ShoppingCart':
+        return <ShoppingCart className="h-6 w-6 text-pink-400" />;
+      case 'Truck':
+        return <Truck className="h-6 w-6 text-lime-400" />;
       default:
         return <Globe className="h-6 w-6 text-gray-400" />;
     }
