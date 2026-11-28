@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { iconColor, monogram } from '../lib/links';
 
 export function AppIcon({ title, size = 64 }: { title: string; size?: number }) {
@@ -52,16 +52,45 @@ export function Pill({ href, children, tone = 'quiet', external = true, icon, si
   );
 }
 
+/** Marks a container visible the first time it scrolls into view; CSS in index.css does the rest. */
+export function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) {
+      el.setAttribute('data-visible', '');
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.setAttribute('data-visible', '');
+          io.disconnect();
+        }
+      },
+      { rootMargin: '0px 0px -12% 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return ref;
+}
+
+/** Stagger index for an item inside a revealed container. */
+export const stagger = (i: number) => ({ '--i': i }) as Record<string, number>;
+
 export function SectionHead({ id, title, note, action }: { id?: string; title: string; note?: string; action?: ReactNode }) {
+  const ref = useReveal<HTMLDivElement>();
   return (
-    <div className="flex items-end justify-between gap-4 border-t border-line pt-6 mb-5">
+    <div ref={ref} data-reveal className="flex items-end justify-between gap-4 border-t border-line pt-6 mb-5">
       <div>
-        <h2 id={id} className="font-display text-[26px] sm:text-[30px] font-bold tracking-[-0.02em] leading-tight">
+        <h2 id={id} className="wipe font-display text-[26px] sm:text-[30px] font-bold tracking-[-0.02em] leading-tight">
           {title}
         </h2>
-        {note && <p className="mt-1 text-[15px] text-ink-2">{note}</p>}
+        {note && <p className="r mt-1 text-[15px] text-ink-2" style={stagger(2)}>{note}</p>}
       </div>
-      {action}
+      {action && <div className="r" style={stagger(3)}>{action}</div>}
     </div>
   );
 }

@@ -1,17 +1,19 @@
 import { useState, type ReactNode } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Plus, Copy, Check, Mail, Phone, CalendarDays, Download, Linkedin, Github } from 'lucide-react';
 import { services, testimonials, faqs, personalInfo } from '../data';
 import { whatsappUrl, cvUrl, bookingUrl, emailUrl, phoneUrl } from '../lib/links';
-import { Pill, SectionHead, WhatsAppGlyph } from './ui';
+import { Pill, SectionHead, WhatsAppGlyph, stagger, useReveal } from './ui';
 
 export function Services() {
+  const ref = useReveal<HTMLUListElement>();
   return (
     <section id="services" aria-labelledby="services-h" className="mx-auto max-w-[1080px] px-4 sm:px-6 pb-10">
       <SectionHead id="services-h" title="What I can build for you" note="Hire me for one of these, or for the whole thing." />
       <div className="overflow-hidden rounded-2xl bg-sheet border border-line px-5 sm:px-7">
-      <ul className="-mt-px grid grid-cols-1 md:grid-cols-2 gap-x-10">
-        {services.map((s) => (
-          <li key={s.title} className="border-t border-line py-4">
+      <ul ref={ref} data-reveal className="-mt-px grid grid-cols-1 md:grid-cols-2 gap-x-10">
+        {services.map((s, i) => (
+          <li key={s.title} style={stagger(i)} className="r border-t border-line py-4">
             <h3 className="text-[16px] font-semibold">{s.title}</h3>
             <p className="mt-1 text-[14px] leading-relaxed text-ink-2">{s.description}</p>
           </li>
@@ -23,14 +25,16 @@ export function Services() {
 }
 
 export function Reviews() {
+  const ref = useReveal<HTMLUListElement>();
   return (
     <section id="testimonials" aria-labelledby="reviews-h" className="mx-auto max-w-[1080px] px-4 sm:px-6 pb-10">
       <SectionHead id="reviews-h" title="What people said" />
-      <ul className="shelf -mx-4 sm:mx-0 px-4 sm:px-0 flex md:grid md:grid-cols-3 gap-3 overflow-x-auto">
-        {testimonials.map((t) => (
+      <ul ref={ref} data-reveal className="shelf -mx-4 sm:mx-0 px-4 sm:px-0 py-1 flex md:grid md:grid-cols-3 gap-3 overflow-x-auto md:overflow-visible">
+        {testimonials.map((t, i) => (
           <li
             key={t.name}
-            className="min-w-[84%] sm:min-w-[60%] md:min-w-0 rounded-2xl bg-sheet border border-line p-5 flex flex-col justify-between gap-5"
+            style={stagger(i * 2)}
+            className="r card-lift min-w-[84%] sm:min-w-[60%] md:min-w-0 rounded-2xl bg-sheet border border-line p-5 flex flex-col justify-between gap-5"
           >
             <blockquote className="text-[15px] leading-relaxed text-ink">{t.content}</blockquote>
             <footer>
@@ -46,14 +50,15 @@ export function Reviews() {
 
 export function Questions() {
   const [open, setOpen] = useState<number | null>(null);
+  const ref = useReveal<HTMLUListElement>();
   return (
     <section id="faq" aria-labelledby="faq-h" className="mx-auto max-w-[1080px] px-4 sm:px-6 pb-10">
       <SectionHead id="faq-h" title="Questions people ask" />
-      <ul className="rounded-2xl bg-sheet border border-line px-5 sm:px-7">
+      <ul ref={ref} data-reveal className="rounded-2xl bg-sheet border border-line px-5 sm:px-7">
         {faqs.map((f, i) => {
           const isOpen = open === i;
           return (
-            <li key={f.question} className="border-b border-line last:border-b-0">
+            <li key={f.question} style={stagger(i)} className="r border-b border-line last:border-b-0">
               <button
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
@@ -66,7 +71,20 @@ export function Questions() {
                   className={`h-4 w-4 shrink-0 text-ink-3 transition-transform duration-200 ease-out ${isOpen ? 'rotate-45' : ''}`}
                 />
               </button>
-              {isOpen && <p className="max-w-[68ch] pb-5 text-[15px] leading-relaxed text-ink-2">{f.answer}</p>}
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key="a"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <p className="max-w-[68ch] pb-5 text-[15px] leading-relaxed text-ink-2">{f.answer}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </li>
           );
         })}
@@ -96,7 +114,9 @@ function CopyRow({ label, value, href, icon }: { label: string; value: string; h
         className="press inline-flex h-8 items-center gap-1 rounded-full bg-ground px-3 text-[13px] font-medium text-ink-2 hover:bg-line"
         aria-label={`Copy ${label.toLowerCase()}`}
       >
-        {copied ? <Check className="h-3.5 w-3.5 text-action" /> : <Copy className="h-3.5 w-3.5" />}
+        <span key={copied ? 'y' : 'n'} className="pop-in inline-flex">
+          {copied ? <Check className="h-3.5 w-3.5 text-action" /> : <Copy className="h-3.5 w-3.5" />}
+        </span>
         {copied ? 'Copied' : 'Copy'}
       </button>
     </div>
@@ -104,18 +124,19 @@ function CopyRow({ label, value, href, icon }: { label: string; value: string; h
 }
 
 export function Contact() {
+  const ref = useReveal<HTMLDivElement>();
   return (
     <section id="contact" aria-labelledby="contact-h" className="bg-sheet border-t border-line">
-      <div className="mx-auto grid max-w-[1080px] gap-10 px-4 sm:px-6 py-14 md:grid-cols-[1.1fr_1fr]">
+      <div ref={ref} data-reveal className="mx-auto grid max-w-[1080px] gap-10 px-4 sm:px-6 py-14 md:grid-cols-[1.1fr_1fr]">
         <div>
-          <h2 id="contact-h" className="font-display text-[36px] sm:text-[48px] font-bold leading-[1.02] tracking-[-0.03em]">
+          <h2 id="contact-h" className="wipe font-display text-[36px] sm:text-[48px] font-bold leading-[1.02] tracking-[-0.03em]">
             Got an app or a site to build?
           </h2>
-          <p className="mt-4 max-w-[46ch] text-[16px] leading-relaxed text-ink-2">
+          <p style={stagger(2)} className="r mt-4 max-w-[46ch] text-[16px] leading-relaxed text-ink-2">
             Send me a WhatsApp with what you have in mind, even if it is only a rough idea. I will tell you honestly
             what it takes, how long, and whether I am the right person for it.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2.5">
+          <div style={stagger(3)} className="r mt-6 flex flex-wrap gap-2.5">
             <Pill href={whatsappUrl} tone="action" size="md" icon={<WhatsAppGlyph />}>
               Message on WhatsApp
             </Pill>
@@ -127,7 +148,7 @@ export function Contact() {
             </Pill>
           </div>
         </div>
-        <div>
+        <div style={stagger(4)} className="r">
           <CopyRow label="Email" value={personalInfo.email} href={emailUrl} icon={<Mail className="h-4 w-4" />} />
           <CopyRow label="Phone" value={personalInfo.phone} href={phoneUrl} icon={<Phone className="h-4 w-4" />} />
           <div className="flex flex-wrap gap-x-6 gap-y-2 pt-4 text-[15px]">

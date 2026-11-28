@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import type { Project } from '../types';
 import { shelves, shortName, subtitle } from '../lib/links';
-import { AppIcon, Pill, SectionHead } from './ui';
+import { AppIcon, Pill, SectionHead, stagger, useReveal } from './ui';
 
 function projectLinks(p: Project) {
   const out: { label: string; href: string }[] = [];
@@ -15,7 +15,7 @@ function projectLinks(p: Project) {
   return out;
 }
 
-function Listing({ p, enter }: { p: Project; key?: string; enter?: number }) {
+function Listing({ p, i }: { p: Project; key?: string; i: number }) {
   const [open, setOpen] = useState(false);
   const links = projectLinks(p);
   const id = `p-${shortName(p.title).replace(/\W+/g, '-').toLowerCase()}`;
@@ -27,20 +27,9 @@ function Listing({ p, enter }: { p: Project; key?: string; enter?: number }) {
   ].filter((x) => x.text);
 
   return (
-    <li className="border-b border-line">
+    <li className="listing r border-b border-line" style={stagger(i)}>
       <div className="flex items-center gap-4 py-3.5">
-        {enter === undefined ? (
-          <AppIcon title={p.title} size={60} />
-        ) : (
-          <motion.span
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1], delay: 0.24 + 0.04 * enter }}
-            className="inline-flex"
-          >
-            <AppIcon title={p.title} size={60} />
-          </motion.span>
-        )}
+        <AppIcon title={p.title} size={60} />
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
@@ -65,8 +54,18 @@ function Listing({ p, enter }: { p: Project; key?: string; enter?: number }) {
         )}
       </div>
 
-      {open && (
-        <div id={id} className="pb-5 pl-[76px] pr-1 text-[14px] leading-relaxed text-ink-2">
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="details"
+            id={id}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.24, ease: [0.23, 1, 0.32, 1] }}
+            className="overflow-hidden"
+          >
+        <div className="pb-5 pl-[76px] pr-1 text-[14px] leading-relaxed text-ink-2">
           <p className="text-ink">{p.description}</p>
           {caseStudy.length > 0 ? (
             <dl className="mt-3 space-y-2">
@@ -95,7 +94,9 @@ function Listing({ p, enter }: { p: Project; key?: string; enter?: number }) {
             </div>
           )}
         </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </li>
   );
 }
@@ -106,10 +107,34 @@ function chunk<T>(arr: T[], n: number) {
   return out;
 }
 
+function Shelf({ items }: { items: Project[] }) {
+  const phone = useReveal<HTMLDivElement>();
+  const wide = useReveal<HTMLUListElement>();
+  return (
+    <>
+      {/* Phones: paged columns of three that scroll sideways, like a store shelf */}
+      <div ref={phone} data-reveal className="shelf md:hidden -mx-4 px-4 flex gap-4 overflow-x-auto">
+        {chunk(items, 3).map((col, c) => (
+          <ul key={c} className="min-w-[86%] max-w-[86%] grid grid-cols-1 items-start">
+            {col.map((p, r) => (
+              <Listing key={p.title} p={p} i={c * 3 + r} />
+            ))}
+          </ul>
+        ))}
+      </div>
+      <ul ref={wide} data-reveal className="hidden md:grid md:grid-cols-2 md:gap-x-10 items-start">
+        {items.map((p, i) => (
+          <Listing key={p.title} p={p} i={i} />
+        ))}
+      </ul>
+    </>
+  );
+}
+
 export default function Work() {
   return (
     <section id="work" aria-label="Work" className="mx-auto max-w-[1080px] px-4 sm:px-6 pt-10">
-      {shelves.map((s, si) => (
+      {shelves.map((s) => (
         <div key={s.id} className="mb-10">
           <SectionHead
             title={s.title}
@@ -117,20 +142,7 @@ export default function Work() {
             action={<span className="text-[14px] text-ink-3 whitespace-nowrap">{s.items.length} projects</span>}
           />
           {/* Phones: paged columns of three that scroll sideways, like a store shelf */}
-          <div className="shelf md:hidden -mx-4 px-4 flex gap-4 overflow-x-auto">
-            {chunk(s.items, 3).map((col, c) => (
-              <ul key={c} className="min-w-[86%] max-w-[86%] grid grid-cols-1 items-start">
-                {col.map((p, r) => (
-                  <Listing key={p.title} p={p} enter={si === 0 && c === 0 ? r : undefined} />
-                ))}
-              </ul>
-            ))}
-          </div>
-          <ul className="hidden md:grid md:grid-cols-2 md:gap-x-10 items-start">
-            {s.items.map((p, i) => (
-              <Listing key={p.title} p={p} enter={si === 0 ? i : undefined} />
-            ))}
-          </ul>
+          <Shelf items={s.items} />
         </div>
       ))}
     </section>

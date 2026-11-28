@@ -98,3 +98,119 @@ p {
 @media (hover: hover) and (pointer: fine) {
   .row-hover:hover { background-color: #f6f7f9; }
 }
+
+/* ───────────── Motion ─────────────
+   Strong ease-out for entrances (Emil Kowalski's curve), transform + opacity only,
+   one entrance per container, fired once. Reduced motion keeps the fade, drops the movement. */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Items inside a [data-reveal] container rise in once it scrolls into view. */
+[data-reveal] .r {
+  opacity: 0;
+  transform: translateY(14px);
+}
+[data-reveal][data-visible] .r {
+  opacity: 1;
+  transform: none;
+  transition: opacity 520ms var(--ease-out), transform 620ms var(--ease-out);
+  /* non-uniform stagger: fast at first, then tighter, capped so long lists never wait */
+  transition-delay: calc(min(var(--i, 0), 8) * 42ms + min(var(--i, 0), 3) * 18ms);
+}
+
+/* Section titles wipe up from their baseline. */
+[data-reveal] .wipe {
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(0.25em);
+}
+[data-reveal][data-visible] .wipe {
+  clip-path: inset(0 0 0 0);
+  transform: none;
+  transition: clip-path 700ms var(--ease-in-out), transform 700ms var(--ease-out);
+}
+
+/* The name: each word slides up out of its own mask on first load. */
+.mask-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.mask-word > span {
+  display: inline-block;
+  animation: word-up 820ms var(--ease-out) both;
+  animation-delay: calc(120ms + var(--w, 0) * 90ms);
+}
+@keyframes word-up {
+  from { transform: translateY(105%); }
+  to { transform: translateY(0); }
+}
+
+/* Portrait settles from slightly smaller, like an app icon landing on a home screen. */
+.portrait-in {
+  animation: portrait-in 700ms var(--ease-out) both;
+}
+@keyframes portrait-in {
+  from { opacity: 0; transform: scale(0.94) rotate(-2deg); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Header copy follows the name. */
+.rise-in {
+  animation: rise-in 600ms var(--ease-out) both;
+  animation-delay: calc(260ms + var(--i, 0) * 70ms);
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* App icons tilt a touch when you point at their row. */
+.app-icon {
+  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .listing:hover .app-icon {
+    transform: translateY(-2px) rotate(-4deg) scale(1.04);
+    box-shadow: 0 2px 4px rgb(18 20 23 / 0.1), 0 10px 20px -8px rgb(18 20 23 / 0.28);
+  }
+  .card-lift {
+    transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), border-color 220ms ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px -14px rgb(18 20 23 / 0.25);
+    border-color: #d3d7de;
+  }
+}
+
+/* Top bar gains a soft edge once the page has scrolled. */
+.topbar {
+  transition: box-shadow 200ms ease, border-color 200ms ease;
+}
+.topbar[data-scrolled] {
+  box-shadow: 0 6px 20px -14px rgb(18 20 23 / 0.35);
+}
+
+/* Copy button: the new icon pops in. */
+.pop-in {
+  animation: pop-in 220ms var(--ease-out);
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] .r,
+  [data-reveal] .wipe { transform: none; clip-path: none; }
+  [data-reveal][data-visible] .r { transition: opacity 300ms ease; transition-delay: 0ms; }
+  .mask-word > span { animation: none; }
+  .portrait-in, .rise-in { animation-name: fade-only; animation-delay: 0ms; }
+  .pop-in { animation-name: fade-only; }
+  @keyframes fade-only { from { opacity: 0; } to { opacity: 1; } }
+  .listing:hover .app-icon, .card-lift:hover { transform: none; }
+}
