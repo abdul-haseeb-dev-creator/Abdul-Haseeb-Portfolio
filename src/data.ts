@@ -759,6 +759,36 @@ export const faqs = [
     answer: 'Yes. I work remotely from Karachi, Pakistan with clients in Pakistan, the UAE, Europe and the US, on freelance, contract and full-time terms.'
   },
   {
+    category: 'Cost',
+    question: 'How much does it cost to build a mobile app?',
+    answer: 'It depends on the platforms (Android, iOS or both), the number of screens and features, and whether you also need an admin panel and backend. Send me your idea on WhatsApp or email and I will reply with a quote and a timeline for your exact scope.'
+  },
+  {
+    category: 'Timeline',
+    question: 'How long does it take to build an app like a food delivery or grocery app?',
+    answer: 'It depends on scope: a delivery platform usually means a customer app, a driver or rider app and an admin panel, while a simpler app is a single app with a backend. You get a timeline together with the quote, before any work starts.'
+  },
+  {
+    category: 'Technology Choice',
+    question: 'React Native or Flutter: which should I choose for my app?',
+    answer: 'Both build Android and iOS apps from one codebase, and I ship production apps in both. React Native uses JavaScript/TypeScript and suits teams that already have a React website; Flutter uses Dart and gives very consistent UI across devices. If you already have a codebase or team, I usually recommend staying with its stack.'
+  },
+  {
+    category: 'App Store',
+    question: 'Can you publish my app on Google Play and the App Store?',
+    answer: 'Yes. I handle the release builds, store listings and submission for Google Play and the Apple App Store. Apps such as Rizq Mart, Adil Store and DishDish are live on both stores.'
+  },
+  {
+    category: 'Backend',
+    question: 'Can you build the admin panel and backend too, or only the app?',
+    answer: 'Both. Most of my projects include the mobile app, a Laravel or Node.js backend with REST APIs, and a web admin panel the client uses to manage products, orders, users and content.'
+  },
+  {
+    category: 'Maintenance',
+    question: 'Do you provide maintenance after the app goes live?',
+    answer: 'Yes. I offer ongoing maintenance: bug fixes, OS and library updates, new features, performance work and store updates after launch.'
+  },
+  {
     category: 'Figma to Code',
     question: 'Can you convert Figma designs into fully functional apps?',
     answer: 'Yes. I turn Figma designs into responsive, pixel-perfect web and mobile apps with clean code and strong performance.'

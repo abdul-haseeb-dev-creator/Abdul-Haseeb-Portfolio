@@ -264,7 +264,11 @@ function staticHtml() {
 function llmsTxt() {
   return `# ${personalInfo.name}
 
-> ${personalInfo.summary}
+> ${personalInfo.name} is a Karachi-based mobile app and full stack developer (React Native, Flutter, React.js, Next.js, Node.js, Laravel) who has shipped ${projects.length} client projects for businesses in Pakistan, the UAE, Europe and the US.
+
+${personalInfo.summary}
+
+Best for: Android & iOS apps (React Native or Flutter) with a Laravel or Node.js backend and admin panel; e-commerce, grocery and food delivery apps; multi-vendor marketplaces; real estate CRM; corporate websites. Contact: WhatsApp ${PHONE}, ${personalInfo.email}.
 
 Location: ${personalInfo.location}. Open to remote full-time, contract and freelance work.
 
@@ -286,7 +290,16 @@ ${experiences.map((e) => `- ${e.position}, ${e.company} (${e.duration})`).join('
 
 ## Projects
 ${projects
-  .map((p) => `- ${p.title} (${p.category})${p.webUrl ? `: ${p.webUrl}` : ''}`)
+  .map((p) => {
+    const links = [
+      p.webUrl && `web ${p.webUrl}`,
+      p.playStoreUrl && `Google Play ${p.playStoreUrl}`,
+      p.appStoreUrl && `App Store ${p.appStoreUrl}`,
+    ].filter(Boolean);
+    return `- ${p.title} (${p.category}). Tech: ${p.technologies.slice(0, 5).join(', ')}.${
+      links.length ? ` Links: ${links.join(', ')}` : ''
+    }`;
+  })
   .join('\n')}
 
 ## FAQ
