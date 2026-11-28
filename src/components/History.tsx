@@ -6,13 +6,16 @@ function Job({ e, i }: { e: (typeof experiences)[number]; key?: string; i: numbe
   const [all, setAll] = useState(false);
   const shown = all ? e.responsibilities : e.responsibilities.slice(0, 3);
   return (
-    <li className="r grid sm:grid-cols-[200px_1fr] gap-x-8 gap-y-1 border-b border-line py-5 last:border-b-0" style={stagger(i)}>
+    <li className="r grid sm:grid-cols-[200px_1fr] gap-x-8 gap-y-1 border-b border-line py-7 last:border-b-0" style={stagger(i)}>
       <div>
-        <p className="text-[14px] font-medium text-ink">{e.duration.replace('Present', 'now')}</p>
+        <p className="font-display text-[56px] sm:text-[72px] font-bold leading-[0.9] tracking-[-0.05em] text-line" aria-hidden="true">
+          {e.duration.match(/\d{4}/)?.[0]}
+        </p>
+        <p className="mt-2 text-[14px] font-medium text-ink">{e.duration.replace('Present', 'now')}</p>
         <p className="text-[13px] text-ink-3">{e.location}</p>
       </div>
       <div>
-        <h3 className="font-display text-[20px] font-bold tracking-[-0.01em]">{e.position}</h3>
+        <h3 className="font-display text-[24px] font-bold tracking-[-0.02em]">{e.position}</h3>
         <p className="text-[15px] text-ink-2">{e.company}</p>
         <ul className="mt-3 max-w-[68ch] list-disc space-y-1.5 pl-4 text-[15px] leading-relaxed text-ink-2 marker:text-ink-3">
           {shown.map((r) => (

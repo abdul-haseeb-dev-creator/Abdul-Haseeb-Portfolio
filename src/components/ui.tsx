@@ -1,7 +1,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { iconColor, monogram } from '../lib/links';
 
-export function AppIcon({ title, size = 64 }: { title: string; size?: number }) {
+export function AppIcon({ title, size = 64 }: { title: string; size?: number; key?: string }) {
   const text = monogram(title);
   return (
     <span
@@ -85,7 +85,7 @@ export function SectionHead({ id, title, note, action }: { id?: string; title: s
   return (
     <div ref={ref} data-reveal className="flex items-end justify-between gap-4 border-t border-line pt-6 mb-5">
       <div>
-        <h2 id={id} className="wipe font-display text-[26px] sm:text-[30px] font-bold tracking-[-0.02em] leading-tight">
+        <h2 id={id} className="wipe font-display text-[30px] sm:text-[40px] font-bold tracking-[-0.03em] leading-[1.05]">
           {title}
         </h2>
         {note && <p className="r mt-1 text-[15px] text-ink-2" style={stagger(2)}>{note}</p>}

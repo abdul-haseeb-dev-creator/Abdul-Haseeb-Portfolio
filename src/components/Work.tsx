@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import type { Project } from '../types';
-import { shelves, shortName, subtitle } from '../lib/links';
+import { shelves, shortName, subtitle, iconColor } from '../lib/links';
 import { AppIcon, Pill, SectionHead, stagger, useReveal } from './ui';
 
 function projectLinks(p: Project) {
@@ -131,6 +131,44 @@ function Shelf({ items }: { items: Project[] }) {
   );
 }
 
+function FeatureRow({ items }: { items: Project[] }) {
+  const ref = useReveal<HTMLUListElement>();
+  return (
+    <ul ref={ref} data-reveal className="shelf -mx-4 sm:mx-0 px-4 sm:px-0 py-2 flex gap-4 overflow-x-auto lg:grid lg:grid-cols-5 lg:overflow-visible">
+      {items.map((p, i) => {
+        const c = iconColor(p.title);
+        const links = projectLinks(p);
+        return (
+          <li
+            key={p.title}
+            style={{ ...stagger(i), backgroundColor: `${c}14`, borderColor: `${c}33` }}
+            className="r feature-card min-w-[230px] lg:min-w-0 rounded-[24px] border p-5 flex flex-col"
+          >
+            <AppIcon title={p.title} size={76} />
+            <h3 className="mt-5 font-display text-[20px] font-bold leading-tight tracking-[-0.015em]">{shortName(p.title)}</h3>
+            <p className="mt-1 text-[13px] text-ink-2">{subtitle(p)}</p>
+            <p className="mt-1 text-[12px] text-ink-3">{p.platforms?.join(' · ')}</p>
+            <div className="mt-auto pt-5 flex flex-wrap gap-1.5">
+              {links.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: c }}
+                  className="press inline-flex h-8 items-center rounded-full bg-sheet px-3 text-[12px] font-semibold shadow-[0_1px_2px_rgb(18_20_23/0.08)]"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 export default function Work() {
   return (
     <section id="work" aria-label="Work" className="mx-auto max-w-[1080px] px-4 sm:px-6 pt-10">
@@ -142,7 +180,7 @@ export default function Work() {
             action={<span className="text-[14px] text-ink-3 whitespace-nowrap">{s.items.length} projects</span>}
           />
           {/* Phones: paged columns of three that scroll sideways, like a store shelf */}
-          <Shelf items={s.items} />
+          {s.id === 'live' ? <FeatureRow items={s.items} /> : <Shelf items={s.items} />}
         </div>
       ))}
     </section>
