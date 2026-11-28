@@ -779,19 +779,16 @@ export const testimonials = [
   {
     name: 'Sarah Jenkins',
     role: 'Director of Product at Devronix LLC',
-    content: 'Abdul is an exceptional developer who owned the entire lifecycle of our mobile app release. His focus on performance optimization and 95% code reusability saved us weeks of development time.',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200'
+    content: 'Abdul is an exceptional developer who owned the entire lifecycle of our mobile app release. His focus on performance optimization and 95% code reusability saved us weeks of development time.'
   },
   {
     name: 'Kamran Shah',
     role: 'VP Engineering at Midware Technologies',
-    content: 'Abdul brought deep expertise in React.js and React Native. He consistently delivered high-quality, fully tested code and mentored junior developers effectively. A top-tier professional.',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200'
+    content: 'Abdul brought deep expertise in React.js and React Native. He consistently delivered high-quality, fully tested code and mentored junior developers effectively. A top-tier professional.'
   },
   {
     name: 'Michael Chen',
     role: 'Co-Founder of DishDish US',
-    content: 'Collaborating with Abdul was seamless. He designed the APIs and built the complete DishDish cookbook mobile client from scratch. His debugging skills are unmatched.',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200'
+    content: 'Collaborating with Abdul was seamless. He designed the APIs and built the complete DishDish cookbook mobile client from scratch. His debugging skills are unmatched.'
   }
 ];
