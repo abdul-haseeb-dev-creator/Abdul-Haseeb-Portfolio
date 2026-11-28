@@ -34,6 +34,10 @@ const esc = (s: string) =>
 
 const sameAs = [personalInfo.linkedin, personalInfo.github];
 
+// +92 315 8494192 in international (E.164) form, built from the local number.
+const PHONE = `+92${personalInfo.phone.replace(/^0/, '')}`;
+const OG_IMAGE = `${SITE}/og-image.jpg`;
+
 function jsonLd() {
   const person = {
     '@type': 'Person',
@@ -41,9 +45,20 @@ function jsonLd() {
     name: personalInfo.name,
     url: URL,
     image: `${SITE}/profile.jpeg`,
-    jobTitle: 'Full Stack Developer',
+    jobTitle: ['Full Stack Developer', 'Mobile App Developer', 'React Native Developer'],
     description: personalInfo.summary,
     email: `mailto:${personalInfo.email}`,
+    telephone: PHONE,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: PHONE,
+      email: personalInfo.email,
+      url: `https://wa.me/${PHONE.slice(1)}`,
+      availableLanguage: ['English', 'Urdu'],
+      areaServed: 'Worldwide',
+    },
+    knowsLanguage: ['English', 'Urdu'],
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Karachi',
@@ -61,6 +76,9 @@ function jsonLd() {
     knowsAbout: [
       'Full Stack Development',
       'React Native',
+      'Expo',
+      'Flutter',
+      'Cross-Platform App Development',
       'React.js',
       'Next.js',
       'Node.js',
@@ -102,9 +120,25 @@ function jsonLd() {
     '@id': `${URL}#services`,
     name: `${personalInfo.name}: Full Stack, Mobile App & Custom Software Development`,
     url: URL,
+    description:
+      'Mobile app development (React Native, Flutter), full stack web development (React.js, Next.js, Node.js, Laravel), SaaS, ERP, CRM and e-commerce software for clients worldwide.',
+    image: OG_IMAGE,
+    telephone: PHONE,
+    email: personalInfo.email,
     provider: { '@id': `${URL}#person` },
-    areaServed: 'Worldwide',
-    address: { '@type': 'PostalAddress', addressLocality: 'Karachi', addressCountry: 'PK' },
+    areaServed: [
+      { '@type': 'Country', name: 'Pakistan' },
+      { '@type': 'Country', name: 'United Arab Emirates' },
+      { '@type': 'Country', name: 'United States' },
+      { '@type': 'Place', name: 'Europe' },
+      { '@type': 'Place', name: 'Worldwide' },
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Karachi',
+      addressRegion: 'Sindh',
+      addressCountry: 'PK',
+    },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Development services',
@@ -125,9 +159,47 @@ function jsonLd() {
     })),
   };
 
+  const profilePage = {
+    '@type': 'ProfilePage',
+    '@id': `${URL}#profile`,
+    url: URL,
+    name: `${personalInfo.name} | Mobile App & Full Stack Developer`,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${URL}#website` },
+    mainEntity: { '@id': `${URL}#person` },
+    primaryImageOfPage: { '@type': 'ImageObject', url: OG_IMAGE, width: 1200, height: 630 },
+  };
+
+  // Every shipped client project, with its live web / store links when it has them.
+  const portfolio = {
+    '@type': 'ItemList',
+    '@id': `${URL}#projects`,
+    name: `${personalInfo.name}: client projects`,
+    numberOfItems: projects.length,
+    itemListElement: projects.map((p, i) => {
+      const links = [p.webUrl, p.playStoreUrl, p.appStoreUrl].filter(Boolean) as string[];
+      return {
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          // CreativeWork, not SoftwareApplication: Google reports SoftwareApplication
+          // items without price or rating as invalid in Search Console.
+          '@type': 'CreativeWork',
+          name: p.title,
+          description: p.description,
+          genre: p.category,
+          keywords: p.technologies.join(', '),
+          creator: { '@id': `${URL}#person` },
+          ...(links[0] && { url: links[0] }),
+          ...(links.length > 1 && { sameAs: links.slice(1) }),
+        },
+      };
+    }),
+  };
+
   const data = {
     '@context': 'https://schema.org',
-    '@graph': [person, website, service, faqPage],
+    '@graph': [person, website, profilePage, service, portfolio, faqPage],
   };
   // Escape "<" so the JSON can never close the script tag.
   return JSON.stringify(data, null, 2).replace(/</g, '\\u003c');
@@ -173,13 +245,13 @@ function staticHtml() {
   return `
       <div class="seo-static">
         <header>
-          <h1>${esc(personalInfo.name)}, Full Stack Developer</h1>
+          <h1>${esc(personalInfo.name)}, Mobile App &amp; Full Stack Developer in Karachi, Pakistan</h1>
           <p>${esc(personalInfo.title)}</p>
           <p>${esc(personalInfo.summary)}</p>
           <p>Location: ${esc(personalInfo.location)} · Open to remote full-time, contract and freelance work</p>
           <p><a href="${esc(personalInfo.linkedin)}">LinkedIn</a> · <a href="${esc(
             personalInfo.github,
-          )}">GitHub</a> · <a href="mailto:${esc(personalInfo.email)}">Email</a></p>
+          )}">GitHub</a> · <a href="mailto:${esc(personalInfo.email)}">Email</a> · <a href="https://wa.me/${PHONE.slice(1)}">WhatsApp ${esc(PHONE)}</a></p>
         </header>
         <section><h2>Services</h2><ul>${serviceItems}</ul></section>
         <section><h2>Skills</h2><ul>${skillItems}</ul></section>
@@ -200,6 +272,8 @@ Location: ${personalInfo.location}. Open to remote full-time, contract and freel
 - Portfolio: ${URL}
 - LinkedIn: ${personalInfo.linkedin}
 - GitHub: ${personalInfo.github}
+- WhatsApp: https://wa.me/${PHONE.slice(1)} (${PHONE})
+- Email: ${personalInfo.email}
 
 ## Services
 ${services.map((s) => `- ${s.title}: ${s.description}`).join('\n')}
@@ -223,12 +297,14 @@ ${faqs.map((f) => `### ${f.question}\n${f.answer}`).join('\n\n')}
 function sitemap() {
   const today = new Date().toISOString().slice(0, 10);
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>${URL}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>${SITE}/profile.jpeg</image:loc></image:image>
+    <image:image><image:loc>${OG_IMAGE}</image:loc></image:image>
   </url>
 </urlset>
 `;

@@ -9,9 +9,9 @@ export const personalInfo = {
   location: 'Karachi, Sindh, Pakistan',
   linkedin: 'https://linkedin.com/in/abdul-haseeb-1980b516a',
   github: 'https://github.com/abdul-haseeb-dev-creator',
-  summary: 'Senior Full Stack Developer and React Native Developer with 5+ years of experience building custom web applications, cross-platform Android & iOS apps, SaaS products, ERP, CRM and e-commerce software with React.js, Next.js, Node.js, Laravel and PHP. Delivered 10+ production apps for food delivery, grocery, logistics, real estate and multi-vendor marketplace businesses, from UI design to App Store and Play Store deployment.',
+  summary: 'Senior Full Stack Developer and React Native Developer with 5+ years of experience building custom web applications, cross-platform Android & iOS apps with React Native and Flutter, SaaS products, ERP, CRM and e-commerce software with React.js, Next.js, Node.js, Laravel and PHP. Delivered 26 client projects for food delivery, grocery, logistics, real estate and multi-vendor marketplace businesses in Pakistan, the UAE, Europe and the US, from UI design to App Store and Google Play deployment.',
   yearsOfExperience: 5,
-  completedProjects: 10,
+  completedProjects: 26,
 };
 
 export const skillCategories: SkillCategory[] = [
@@ -662,7 +662,7 @@ export const services: Service[] = [
   },
   {
     title: 'Mobile App Development (Android & iOS)',
-    description: 'Cross-platform mobile apps with React Native CLI and Expo, written in TypeScript: UI development, Firebase, push notifications, API integration, testing and App Store / Play Store deployment.',
+    description: 'Cross-platform Android and iOS apps with React Native (CLI and Expo) and Flutter, written in TypeScript and Dart: UI development, Firebase, push notifications, API integration, testing and App Store / Play Store deployment.',
     icon: 'Smartphone'
   },
   {
@@ -726,12 +726,12 @@ export const faqs = [
   {
     category: 'Technologies',
     question: 'Which technologies do you work with?',
-    answer: 'React Native (CLI and Expo), React.js, Next.js, JavaScript (ES6+), TypeScript, Node.js, Express.js, Laravel, PHP, CodeIgniter, Magento, PrestaShop, GraphQL, Firebase, MongoDB, MySQL, SQL Server, Prisma ORM, Docker, AWS and Git.'
+    answer: 'React Native (CLI and Expo), Flutter, React.js, Next.js, JavaScript (ES6+), TypeScript, Node.js, Express.js, Laravel, PHP, CodeIgniter, Magento, PrestaShop, GraphQL, Firebase, MongoDB, MySQL, SQL Server, Prisma ORM, Docker, AWS and Git.'
   },
   {
     category: 'Mobile Apps',
     question: 'Do you develop both Android and iOS applications?',
-    answer: 'Yes. I build cross-platform mobile apps with React Native that run on Android and iOS from a single codebase, and I handle API integration, push notifications, testing and App Store / Google Play deployment.'
+    answer: 'Yes. I build cross-platform mobile apps with React Native and Flutter that run on Android and iOS from a single codebase, and I handle API integration, push notifications, testing and App Store / Google Play deployment.'
   },
   {
     category: 'Business Software',
@@ -747,6 +747,16 @@ export const faqs = [
     category: 'Industries',
     question: 'Which industries have you built apps for?',
     answer: 'Food delivery, grocery delivery, logistics and driver apps, ride and service booking (including home cleaning services), real estate CRM and property listing websites, fitness apps, retail e-commerce and corporate websites in Pakistan, the UAE, Europe and the US.'
+  },
+  {
+    category: 'Flutter',
+    question: 'Do you build Flutter apps?',
+    answer: 'Yes. I build Flutter apps for Android and iOS with a Laravel REST API backend. Rizq Mart, a grocery delivery app live on Google Play and the App Store, is one of them.'
+  },
+  {
+    category: 'Hiring',
+    question: 'Can I hire you as a freelance app developer from Pakistan?',
+    answer: 'Yes. I work remotely from Karachi, Pakistan with clients in Pakistan, the UAE, Europe and the US, on freelance, contract and full-time terms.'
   },
   {
     category: 'Figma to Code',
@@ -771,7 +781,7 @@ export const faqs = [
   {
     category: 'Contact',
     question: 'How can I contact you?',
-    answer: 'Use the contact form on this portfolio, email me, or connect with me on LinkedIn.'
+    answer: 'Message me on WhatsApp at +92 315 8494192, use the contact form on this portfolio, email me, or connect with me on LinkedIn.'
   }
 ];
 
