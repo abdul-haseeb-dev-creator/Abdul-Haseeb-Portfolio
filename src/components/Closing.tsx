@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Plus, Copy, Check, Mail, Phone, CalendarDays, Download, Linkedin, Github } from 'lucide-react';
 import { services, testimonials, faqs, personalInfo } from '../data';
 import { whatsappUrl, cvUrl, bookingUrl, emailUrl, phoneUrl } from '../lib/links';
-import { Pill, SectionHead, WhatsAppGlyph, stagger, useReveal } from './ui';
+import { SectionHead, WhatsAppGlyph, stagger, useReveal } from './ui';
 
 export function Services() {
   const ref = useReveal<HTMLUListElement>();
@@ -126,29 +126,35 @@ function CopyRow({ label, value, href, icon }: { label: string; value: string; h
 export function Contact() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section id="contact" aria-labelledby="contact-h" className="bg-sheet border-t border-line">
-      <div ref={ref} data-reveal className="mx-auto grid max-w-[1080px] gap-10 px-4 sm:px-6 py-14 md:grid-cols-[1.1fr_1fr]">
+    <section id="contact" aria-labelledby="contact-h" className="mt-6 bg-forest text-white">
+      <div ref={ref} data-reveal className="mx-auto grid grid-cols-1 max-w-[1080px] items-center gap-10 px-4 sm:px-6 py-16 sm:py-24 md:grid-cols-[1.15fr_1fr]">
         <div>
-          <h2 id="contact-h" className="wipe font-display text-[36px] sm:text-[48px] font-bold leading-[1.02] tracking-[-0.03em]">
+          <h2 id="contact-h" className="wipe font-display text-[44px] sm:text-[68px] font-bold leading-[0.95] tracking-[-0.04em]">
             Got an app or a site to build?
           </h2>
-          <p style={stagger(2)} className="r mt-4 max-w-[46ch] text-[16px] leading-relaxed text-ink-2">
+          <p style={stagger(2)} className="r mt-5 max-w-[46ch] text-[17px] leading-relaxed text-white/80">
             Send me a WhatsApp with what you have in mind, even if it is only a rough idea. I will tell you honestly
             what it takes, how long, and whether I am the right person for it.
           </p>
           <div style={stagger(3)} className="r mt-6 flex flex-wrap gap-2.5">
-            <Pill href={whatsappUrl} tone="action" size="md" icon={<WhatsAppGlyph />}>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="press inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-[15px] font-semibold text-forest hover:bg-mint"
+            >
+              <WhatsAppGlyph className="h-[18px] w-[18px] text-action" />
               Message on WhatsApp
-            </Pill>
-            <Pill href={bookingUrl} tone="outline" size="md" icon={<CalendarDays className="h-4 w-4" />}>
-              Book a call
-            </Pill>
-            <Pill href={cvUrl} tone="outline" size="md" icon={<Download className="h-4 w-4" />}>
-              Download CV
-            </Pill>
+            </a>
+            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="press inline-flex h-12 items-center gap-2 rounded-full border border-white/25 px-5 text-[15px] font-semibold hover:border-mint hover:text-mint">
+              <CalendarDays className="h-4 w-4" /> Book a call
+            </a>
+            <a href={cvUrl} target="_blank" rel="noopener noreferrer" className="press inline-flex h-12 items-center gap-2 rounded-full border border-white/25 px-5 text-[15px] font-semibold hover:border-mint hover:text-mint">
+              <Download className="h-4 w-4" /> Download CV
+            </a>
           </div>
         </div>
-        <div style={stagger(4)} className="r">
+        <div style={stagger(4)} className="r rounded-[28px] bg-sheet p-6 sm:p-7 text-ink shadow-[0_30px_60px_-30px_rgb(0_0_0/0.5)]">
           <CopyRow label="Email" value={personalInfo.email} href={emailUrl} icon={<Mail className="h-4 w-4" />} />
           <CopyRow label="Phone" value={personalInfo.phone} href={phoneUrl} icon={<Phone className="h-4 w-4" />} />
           <div className="flex flex-wrap gap-x-6 gap-y-2 pt-4 text-[15px]">
@@ -168,10 +174,10 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-[1080px] flex-wrap items-center justify-between gap-2 px-4 sm:px-6 py-6 text-[13px] text-ink-3">
+    <footer className="bg-forest-2 text-white/60">
+      <div className="mx-auto flex max-w-[1080px] flex-wrap items-center justify-between gap-2 px-4 sm:px-6 py-6 text-[13px]">
         <p>© {new Date().getFullYear()} Abdul Haseeb. Designed and built in Karachi.</p>
-        <a href="#home" className="hover:text-ink">Back to top</a>
+        <a href="#home" className="hover:text-white">Back to top</a>
       </div>
     </footer>
   );

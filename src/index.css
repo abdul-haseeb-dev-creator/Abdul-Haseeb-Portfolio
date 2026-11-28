@@ -32,6 +32,12 @@
   --color-action-press: #08643f;
   --color-action-tint: #e3f3ec;
   --color-link: #1757c2;
+  /* Deep field of the action green: hero and closing bands */
+  --color-forest: #0a3a2c;
+  --color-forest-2: #0e4a38;
+  --color-forest-3: #155c46;
+  --color-mint: #b9ebd3;
+  --color-mint-2: #7fcfaa;
 
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -213,4 +219,56 @@ p {
   .pop-in { animation-name: fade-only; }
   @keyframes fade-only { from { opacity: 0; } to { opacity: 1; } }
   .listing:hover .app-icon, .card-lift:hover { transform: none; }
+}
+
+/* ───────────── Hero phone ───────────── */
+.phone {
+  border-radius: 46px;
+  background: #0b0d10;
+  padding: 11px;
+  box-shadow:
+    0 0 0 1.5px #2a2f36 inset,
+    0 2px 4px rgb(0 0 0 / 0.25),
+    0 30px 60px -20px rgb(0 0 0 / 0.55),
+    0 60px 120px -40px rgb(0 0 0 / 0.45);
+}
+.phone-screen {
+  border-radius: 36px;
+  background:
+    radial-gradient(120% 80% at 20% 0%, #2f8f6c 0%, transparent 60%),
+    radial-gradient(90% 70% at 100% 100%, #1d5f86 0%, transparent 65%),
+    #123c31;
+}
+.home-icon {
+  animation: home-icon 560ms var(--ease-out) both;
+  animation-delay: calc(420ms + var(--i, 0) * 38ms);
+}
+@keyframes home-icon {
+  from { opacity: 0; transform: scale(0.7) translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.phone-in {
+  animation: phone-in 900ms var(--ease-out) both;
+  animation-delay: 140ms;
+}
+@keyframes phone-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .phone-wrap:hover .phone-tilt { transform: rotate(-2deg) translateY(-6px) !important; }
+}
+.phone-tilt { transition: transform 600ms var(--ease-out); }
+@media (min-width: 1024px) { .phone-tilt { transform: rotate(-5deg); } }
+
+/* Feature cards for live apps */
+.feature-card { transition: transform 240ms var(--ease-out), box-shadow 240ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px -18px rgb(18 20 23 / 0.35); }
+  .feature-card:hover .app-icon { transform: rotate(-6deg) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-icon, .phone-in { animation-name: fade-only; animation-delay: 0ms; }
+  .phone-wrap:hover .phone-tilt, .feature-card:hover, .feature-card:hover .app-icon { transform: none; }
 }
